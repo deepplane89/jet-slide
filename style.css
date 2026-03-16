@@ -811,7 +811,7 @@ html, body {
 .intro-title.line-c {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 38%;
   width: 90%;
   text-align: center;
 }
@@ -841,10 +841,10 @@ html, body {
   opacity: 0;
 }
 @keyframes introTitleFade {
-  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
-  20%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
-  72%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.02); }
+  0%   { opacity: 0; transform: translate(-50%, -38%) scale(0.96); }
+  20%  { opacity: 1; transform: translate(-50%, -38%) scale(1.0); }
+  72%  { opacity: 1; transform: translate(-50%, -38%) scale(1.0); }
+  100% { opacity: 0; transform: translate(-50%, -38%) scale(1.02); }
 }
 .intro-title.playing {
   animation: introTitleFade 4.5s ease-in-out forwards;
