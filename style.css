@@ -783,18 +783,17 @@ html, body {
 #intro-overlay {
   position: fixed;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2.5vh;
   pointer-events: none;
   z-index: 500;
   background: transparent;
 }
 
-/* Both lines share exact pause-title styling but small */
+/* Lines A & B — absolutely positioned in upper-center */
 .intro-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
   font-family: var(--font-display);
   font-size: clamp(11px, 1.1vw, 16px);
   font-weight: 400;
@@ -805,6 +804,17 @@ html, body {
   opacity: 0;
   line-height: 1.4;
   padding: 0 4vw;
+}
+.intro-line.line-a { top: 32%; }
+.intro-line.line-b { top: 42%; }
+
+/* JET HORIZON title card — dead center of screen */
+.intro-title.line-c {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
 }
 
 /* Soft fade in, hold, soft fade out — 3.5s total */
