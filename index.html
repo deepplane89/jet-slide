@@ -42,6 +42,11 @@
   <div class="title-content">
     <h1 class="game-title">JET<br>HORIZON</h1>
     <button id="start-btn" class="btn-space">SPACE</button>
+    <div class="title-controls">
+      <div class="ctrl-row"><span class="ctrl-key">← →</span><span class="ctrl-desc">STEER</span></div>
+      <div class="ctrl-row"><span class="ctrl-key">↑ ↓</span><span class="ctrl-desc">ROLL AXIS</span></div>
+      <div class="ctrl-row"><span class="ctrl-key">SPACE</span><span class="ctrl-desc">PAUSE</span></div>
+    </div>
     <!-- hidden slider kept for JS compatibility -->
     <span id="title-coin-count" style="display:none">0</span>
   </div>
@@ -55,6 +60,7 @@
       <div class="score-row"><span class="score-label">SCORE</span><span id="go-score" class="score-val">0</span></div>
       <div class="score-row"><span class="score-label">BEST</span><span id="go-best" class="score-val">0</span></div>
       <div class="score-row"><span class="score-label">LEVEL</span><span id="go-level" class="score-val">1</span></div>
+      <div class="score-row"><span class="score-label">COINS</span><span id="go-coins" class="score-val">0</span></div>
     </div>
     <button id="restart-btn" class="btn-space">AGAIN</button>
   </div>

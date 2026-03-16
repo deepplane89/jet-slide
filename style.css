@@ -113,6 +113,33 @@ html, body {
   text-shadow: none;
 }
 
+.title-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  opacity: 0.45;
+}
+.ctrl-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.85vw, 12px);
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.9);
+}
+.ctrl-key {
+  min-width: 52px;
+  text-align: right;
+  color: rgba(255,255,255,0.6);
+}
+.ctrl-desc {
+  min-width: 72px;
+  text-align: left;
+}
+
 .btn-space {
   font-family: 'Zain', sans-serif;
   font-size: clamp(16px, 1.8vw, 22px);
@@ -790,4 +817,26 @@ html, body {
 
 .intro-line.playing {
   animation: introFade 3.5s ease-in-out forwards;
+}
+
+/* JET HORIZON title card — same glow aesthetic but large */
+.intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 40px #fff, 0 0 80px rgba(0,240,255,0.6), 0 0 140px rgba(0,240,255,0.25);
+  opacity: 0;
+}
+@keyframes introTitleFade {
+  0%   { opacity: 0; transform: scale(0.96); }
+  20%  { opacity: 1; transform: scale(1.0); }
+  72%  { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(1.02); }
+}
+.intro-title.playing {
+  animation: introTitleFade 4.5s ease-in-out forwards;
 }
