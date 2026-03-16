@@ -807,13 +807,12 @@ html, body {
   padding: 0 4vw;
 }
 
-/* JET HORIZON — absolutely centered, independent of lines A/B */
+/* JET HORIZON — same position as title screen (flex center ≈ top 40%) */
 .intro-title.line-c {
   position: absolute;
   left: 50%;
-  top: 38%;
-  width: 90%;
-  text-align: center;
+  top: 40%;
+  width: 100%;
 }
 
 /* Soft fade in, hold, soft fade out — 3.5s total */
@@ -828,23 +827,23 @@ html, body {
   animation: introFade 3.5s ease-in-out forwards;
 }
 
-/* JET HORIZON title card — same glow aesthetic but large */
+/* JET HORIZON intro card — identical size/style to .game-title on title screen */
 .intro-title {
   font-family: var(--font-display);
-  font-size: clamp(52px, 9vw, 110px);
+  font-size: clamp(64px, 13vw, 130px);
   font-weight: 400;
   line-height: 0.95;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   text-align: center;
   color: #fff;
-  text-shadow: 0 0 40px #fff, 0 0 80px rgba(0,240,255,0.6), 0 0 140px rgba(0,240,255,0.25);
+  text-shadow: none;
   opacity: 0;
 }
 @keyframes introTitleFade {
-  0%   { opacity: 0; transform: translate(-50%, -38%) scale(0.96); }
-  20%  { opacity: 1; transform: translate(-50%, -38%) scale(1.0); }
-  72%  { opacity: 1; transform: translate(-50%, -38%) scale(1.0); }
-  100% { opacity: 0; transform: translate(-50%, -38%) scale(1.02); }
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.98); }
+  20%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+  75%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.0); }
 }
 .intro-title.playing {
   animation: introTitleFade 4.5s ease-in-out forwards;
