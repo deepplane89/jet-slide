@@ -783,17 +783,18 @@ html, body {
 #intro-overlay {
   position: fixed;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.5vh;
   pointer-events: none;
   z-index: 500;
   background: transparent;
 }
 
-/* Lines A & B — absolutely positioned in upper-center */
+/* Lines A & B — normal flow, centered by the flex overlay */
 .intro-line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
   font-family: var(--font-display);
   font-size: clamp(11px, 1.1vw, 16px);
   font-weight: 400;
@@ -805,16 +806,14 @@ html, body {
   line-height: 1.4;
   padding: 0 4vw;
 }
-.intro-line.line-a { top: 32%; }
-.intro-line.line-b { top: 42%; }
 
-/* JET HORIZON title card — dead center of screen */
+/* JET HORIZON — absolutely centered, independent of lines A/B */
 .intro-title.line-c {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   width: 90%;
+  text-align: center;
 }
 
 /* Soft fade in, hold, soft fade out — 3.5s total */
@@ -842,10 +841,10 @@ html, body {
   opacity: 0;
 }
 @keyframes introTitleFade {
-  0%   { opacity: 0; transform: scale(0.96); }
-  20%  { opacity: 1; transform: scale(1.0); }
-  72%  { opacity: 1; transform: scale(1.0); }
-  100% { opacity: 0; transform: scale(1.02); }
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+  20%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+  72%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.02); }
 }
 .intro-title.playing {
   animation: introTitleFade 4.5s ease-in-out forwards;
