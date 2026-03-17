@@ -791,6 +791,10 @@ html, body {
   pointer-events: none;
   z-index: 500;
   background: transparent;
+  transition: opacity 0.8s ease-out;
+}
+#intro-overlay.fading-out {
+  opacity: 0;
 }
 
 /* Lines A & B — normal flow, centered by the flex overlay */
