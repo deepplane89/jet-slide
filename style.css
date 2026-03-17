@@ -858,8 +858,14 @@ html, body {
   font-family: var(--font-display);
   font-size: clamp(9px, 0.85vw, 12px);
   letter-spacing: 0.3em;
-  text-transform: lowercase;
-  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
   pointer-events: none;
   text-shadow: none;
+  opacity: 0;
+  animation: skipHintFade 1.2s ease-out 4s forwards;
+}
+@keyframes skipHintFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
