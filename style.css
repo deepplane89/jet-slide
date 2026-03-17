@@ -852,14 +852,14 @@ html, body {
 /* Intro skip hint — bottom of screen, always visible during sequence */
 .intro-skip-hint {
   position: fixed;
-  bottom: 4vh;
+  bottom: 18vh;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
   font-size: clamp(9px, 0.85vw, 12px);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.75);
   pointer-events: none;
   text-shadow: none;
   opacity: 0;
