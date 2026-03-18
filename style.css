@@ -140,6 +140,61 @@ html, body {
   text-align: left;
 }
 
+/* ── PERFORMANCE MODE TOGGLE ──────────────────────────── */
+.perf-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: -8px;
+  opacity: 0.55;
+  transition: opacity 180ms ease;
+}
+.perf-toggle-wrap:hover { opacity: 0.85; }
+
+.perf-label {
+  font-family: var(--font-display);
+  font-size: clamp(8px, 0.75vw, 10px);
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.85);
+  user-select: none;
+}
+
+.perf-toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  transition: background 220ms ease, border-color 220ms ease;
+  flex-shrink: 0;
+}
+.perf-toggle.on {
+  background: rgba(0, 240, 255, 0.28);
+  border-color: rgba(0, 240, 255, 0.55);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.perf-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: left 220ms cubic-bezier(0.16,1,0.3,1), background 220ms ease;
+  pointer-events: none;
+}
+.perf-toggle.on .perf-knob {
+  left: 23px;
+  background: #00f0ff;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.8);
+}
+
 .btn-space {
   font-family: 'Zain', sans-serif;
   font-size: clamp(16px, 1.8vw, 22px);
