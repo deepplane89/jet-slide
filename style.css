@@ -748,7 +748,7 @@ html, body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 42%;
+  width: 50%;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -782,37 +782,23 @@ html, body {
 .touch-left.active::after,
 .touch-right.active::after { opacity: 0.45; }
 
-/* Roll buttons — center bottom */
-.touch-roll-wrap {
+/* Swipe-up roll hint — small chevron near bottom of each zone */
+.touch-left::before,
+.touch-right::before {
+  content: '';
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  pointer-events: auto;
+  bottom: 80px;
+  width: 24px;
+  height: 14px;
+  border-left: 3px solid rgba(255,255,255,0.18);
+  border-top: 3px solid rgba(255,255,255,0.18);
+  transform: rotate(45deg);
+  transition: opacity 0.2s;
 }
-.touch-roll {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.2);
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: rgba(255,255,255,0.5);
-  backdrop-filter: blur(4px);
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: background 0.1s, color 0.1s;
-}
-.touch-roll.active {
-  background: rgba(0,240,255,0.25);
-  color: var(--color-cyan);
-  border-color: var(--color-cyan);
-}
+.touch-left::before  { left: 50%; margin-left: -12px; }
+.touch-right::before { left: 50%; margin-left: -12px; }
+.touch-left.active::before,
+.touch-right.active::before { border-color: rgba(0,240,255,0.5); }
 
 /* Pause button — top right */
 .touch-pause {
