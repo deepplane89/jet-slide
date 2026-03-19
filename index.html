@@ -87,19 +87,25 @@
 <!-- ── GAME OVER SCREEN ──────────────────────────── -->
 <div id="gameover-screen" class="overlay hidden">
   <div class="gameover-content">
-    <h2 class="gameover-title">GAME OVER</h2>
-    <div class="score-display">
-      <div class="score-row"><span class="score-label">SCORE</span><span id="go-score" class="score-val">0</span></div>
-      <div class="score-row"><span class="score-label">BEST</span><span id="go-best" class="score-val">0</span></div>
-      <div class="score-row"><span class="score-label">LEVEL</span><span id="go-level" class="score-val">1</span></div>
-      <div class="score-row"><span class="score-label">COINS</span><span id="go-coins" class="score-val">0</span></div>
-      <div class="score-row"><span class="score-label">BONUS</span><span id="go-coin-mult" class="score-val">1.00×</span></div>
+    <h2 class="gameover-title go-anim" style="--d:0">GAME OVER</h2>
+    <div class="go-hero go-anim" style="--d:1">
+      <span class="go-hero-label">SCORE</span>
+      <span class="go-hero-val" id="go-score">0</span>
     </div>
-    <div class="score-submit" id="score-submit">
+    <div class="go-best go-anim" style="--d:2">
+      <span class="go-best-label">BEST</span>
+      <span class="go-best-val" id="go-best">0</span>
+    </div>
+    <div class="go-stats go-anim" style="--d:3">
+      <div class="go-stat"><span class="go-stat-val" id="go-level">1</span><span class="go-stat-label">LEVEL</span></div>
+      <div class="go-stat"><span class="go-stat-val" id="go-coins">0</span><span class="go-stat-label">COINS</span></div>
+      <div class="go-stat"><span class="go-stat-val" id="go-coin-mult">1.00×</span><span class="go-stat-label">BONUS</span></div>
+    </div>
+    <div class="score-submit go-anim" id="score-submit" style="--d:4">
       <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
       <button id="submit-score-btn" class="btn-space btn-submit">SUBMIT</button>
     </div>
-    <button id="restart-btn" class="btn-space">AGAIN</button>
+    <button id="restart-btn" class="btn-space go-anim" style="--d:5">AGAIN</button>
   </div>
 </div>
 

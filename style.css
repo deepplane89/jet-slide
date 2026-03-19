@@ -350,44 +350,108 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
+  gap: 6px;
+}
+
+/* Staggered fade-in animation */
+@keyframes goReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.go-anim {
+  opacity: 0;
+  animation: goReveal 0.45s ease-out forwards;
+  animation-delay: calc(var(--d) * 0.12s + 0.1s);
 }
 
 .gameover-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 10vw, 96px);
+  font-size: clamp(36px, 9vw, 80px);
   font-weight: 400;
   letter-spacing: 0.02em;
   color: #fff;
   text-shadow: none;
+  margin-bottom: 4px;
 }
 
-.score-display {
+/* Hero score — big and glowing */
+.go-hero {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  min-width: 220px;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.go-hero-label {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.9vw, 11px);
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.4);
+}
+.go-hero-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(52px, 12vw, 96px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
-.score-row {
+/* Best score — secondary callout */
+.go-best {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: var(--space-8);
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 6px;
 }
-.score-label {
-  font-family: 'Zain', sans-serif;
-  font-size: clamp(12px, 1.2vw, 15px);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.45);
+.go-best-label {
+  font-family: var(--font-display);
+  font-size: clamp(8px, 0.8vw, 10px);
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.35);
 }
-.score-val {
-  font-family: 'Zain', sans-serif;
-  font-size: clamp(14px, 1.4vw, 18px);
-  font-weight: 400;
-  color: rgba(255,255,255,0.9);
+.go-best-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
   font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Compact stat pills — LEVEL / COINS / BONUS in a row */
+.go-stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.go-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  min-width: 60px;
+}
+.go-stat-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.go-stat-label {
+  font-family: var(--font-display);
+  font-size: clamp(7px, 0.65vw, 9px);
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.3);
 }
 
 /* ── BUTTONS ──────────────────────────────────────────── */
@@ -1036,20 +1100,28 @@ html, body {
 
   /* ── GAME OVER SCREEN — compact landscape layout ──────── */
   .gameover-content {
-    gap: 12px;
+    gap: 4px;
   }
   .gameover-title {
-    font-size: clamp(32px, 8vw, 56px);
+    font-size: clamp(24px, 7vw, 44px);
+    margin-bottom: 0;
   }
-  .score-display {
-    gap: 6px;
-    min-width: 180px;
+  .go-hero { margin-bottom: 0; }
+  .go-hero-val {
+    font-size: clamp(36px, 8vw, 56px);
   }
-  .score-row {
-    gap: 16px;
+  .go-best {
+    padding: 2px 12px;
+    margin-bottom: 2px;
   }
+  .go-stats { gap: 8px; margin-bottom: 2px; }
+  .go-stat {
+    padding: 4px 10px;
+    min-width: 50px;
+  }
+  .go-stat-val { font-size: clamp(14px, 2vw, 18px); }
   .gameover-content .btn-space {
-    padding: 10px 28px;
+    padding: 8px 24px;
   }
 
   /* ── A2HS BANNER — landscape adjust ───────────────────── */
