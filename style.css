@@ -1014,3 +1014,52 @@ html, body {
 @media (hover: none) and (pointer: coarse) {
   .level-chooser { display: flex; }
 }
+
+/* ── ADD TO HOME SCREEN NUDGE ────────────────────────────────────────────── */
+.a2hs-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  width: calc(100% - 40px);
+  max-width: 380px;
+  background: rgba(10, 8, 30, 0.92);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  padding: 14px 16px;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.a2hs-banner.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(20px);
+}
+.a2hs-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.a2hs-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.a2hs-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+.a2hs-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  flex-shrink: 0;
+  line-height: 1;
+}
