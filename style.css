@@ -782,23 +782,7 @@ html, body {
 .touch-left.active::after,
 .touch-right.active::after { opacity: 0.45; }
 
-/* Swipe-up roll hint — small chevron near bottom of each zone */
-.touch-left::before,
-.touch-right::before {
-  content: '';
-  position: absolute;
-  bottom: 80px;
-  width: 24px;
-  height: 14px;
-  border-left: 3px solid rgba(255,255,255,0.18);
-  border-top: 3px solid rgba(255,255,255,0.18);
-  transform: rotate(45deg);
-  transition: opacity 0.2s;
-}
-.touch-left::before  { left: 50%; margin-left: -12px; }
-.touch-right::before { left: 50%; margin-left: -12px; }
-.touch-left.active::before,
-.touch-right.active::before { border-color: rgba(0,240,255,0.5); }
+
 
 /* Pause button — top right */
 .touch-pause {
@@ -947,18 +931,7 @@ html, body {
   100% { transform: rotate(0deg); }
 }
 
-/* On mobile portrait — show the rotate prompt, hide game */
-@media (max-width: 900px) and (orientation: portrait) {
-  #rotate-prompt { display: flex; }
-  #game-canvas,
-  #touch-controls,
-  #hud,
-  #title-screen,
-  #pause-overlay,
-  #gameover-screen,
-  #level-banner,
-  .mute-btn { visibility: hidden; }
-}
+/* Portrait: game still works, no forced lock */
 
 /* On mobile landscape — touch zones are side strips */
 @media (max-height: 500px) and (orientation: landscape) {
