@@ -914,3 +914,69 @@ html, body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* ── LANDSCAPE / MOBILE ORIENTATION ─────────────────────────────────────── */
+
+/* Rotate prompt — shown in portrait on mobile, hidden in landscape */
+#rotate-prompt {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+#rotate-prompt svg {
+  width: 64px;
+  height: 64px;
+  opacity: 0.6;
+  animation: rotateHint 2s ease-in-out infinite;
+}
+@keyframes rotateHint {
+  0%   { transform: rotate(0deg); }
+  40%  { transform: rotate(-90deg); }
+  60%  { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* On mobile portrait — show the rotate prompt, hide game */
+@media (max-width: 900px) and (orientation: portrait) {
+  #rotate-prompt { display: flex; }
+  #game-canvas,
+  #touch-controls,
+  #hud,
+  #title-screen,
+  #pause-overlay,
+  #gameover-screen,
+  #level-banner,
+  .mute-btn { visibility: hidden; }
+}
+
+/* On mobile landscape — touch zones are side strips */
+@media (max-height: 500px) and (orientation: landscape) {
+  .touch-left,
+  .touch-right {
+    width: 50%;
+    top: 0;
+    bottom: 0;
+  }
+  /* Swipe arrow — move to vertical center */
+  .touch-left::after  { left: 20px; }
+  .touch-right::after { right: 20px; }
+  /* Pause button smaller on landscape */
+  .touch-pause {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    top: 10px;
+    right: 10px;
+  }
+}
