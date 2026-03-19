@@ -992,6 +992,34 @@ html, body {
     font-size: 9px;
   }
 
+  /* ── LEADERBOARD — compact landscape ──────────────────────────────────── */
+  .leaderboard {
+    width: 220px;
+    padding: 6px 8px 5px;
+  }
+  .leaderboard-label {
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+  .leaderboard-list {
+    max-height: 80px;
+    gap: 1px;
+  }
+  .lb-row {
+    padding: 2px 4px;
+  }
+
+  /* ── SCORE SUBMIT — compact landscape ──────────────────────────────────── */
+  .player-name-input {
+    padding: 8px 12px;
+    font-size: 13px;
+    width: 120px;
+  }
+  .btn-submit {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
   /* ── PAUSE SCREEN — compact landscape layout ──────────── */
   .pause-content {
     gap: 16px;
@@ -1095,6 +1123,178 @@ html, body {
   .level-chooser { display: flex; }
   .title-controls { display: none; } /* hide keyboard hints on touch devices */
   .level-btn span { display: none; } /* hide level names on mobile, keep numbers */
+}
+
+/* ── LEADERBOARD (title screen) ─────────────────────────────────────────── */
+.leaderboard {
+  width: 260px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: var(--radius-md);
+  padding: 10px 12px 8px;
+  backdrop-filter: blur(6px);
+}
+
+.leaderboard-label {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.85vw, 11px);
+  letter-spacing: 0.3em;
+  color: var(--color-cyan);
+  text-shadow: 0 0 8px var(--color-cyan);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,240,255,0.3) transparent;
+}
+
+.leaderboard-list::-webkit-scrollbar {
+  width: 3px;
+}
+.leaderboard-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.leaderboard-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 2px;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  transition: background 0.15s;
+}
+.lb-row:nth-child(even) {
+  background: rgba(255,255,255,0.055);
+}
+.lb-row.lb-highlight {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+}
+
+.lb-rank {
+  font-family: var(--font-display);
+  font-size: clamp(8px, 0.8vw, 10px);
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+  letter-spacing: 0.05em;
+}
+.lb-row:first-child .lb-rank { color: var(--color-gold); }
+.lb-row:nth-child(2) .lb-rank { color: rgba(192, 192, 192, 0.85); }
+.lb-row:nth-child(3) .lb-rank { color: rgba(180, 100, 40, 0.85); }
+
+.lb-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.82);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.lb-score {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.9vw, 11px);
+  color: rgba(255,255,255,0.65);
+  text-align: right;
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+.lb-row.lb-highlight .lb-score { color: var(--color-cyan); }
+
+.lb-empty {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.85vw, 11px);
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* ── SCORE SUBMIT (game over screen) ──────────────────────────────────────── */
+.score-submit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+.score-submit.hidden {
+  display: none;
+}
+
+.player-name-input {
+  font-family: 'Zain', sans-serif;
+  font-size: clamp(14px, 1.6vw, 19px);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-bottom-color: rgba(255,255,255,0.1);
+  padding: 14px 18px;
+  border-radius: 14px;
+  outline: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    0 4px 24px rgba(0,0,0,0.35);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 160px;
+  text-align: center;
+  caret-color: var(--color-cyan);
+  text-transform: uppercase;
+}
+.player-name-input::placeholder {
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.25em;
+}
+.player-name-input:focus {
+  border-color: rgba(0,240,255,0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    0 0 0 2px rgba(0,240,255,0.15),
+    0 4px 24px rgba(0,0,0,0.35);
+}
+
+.btn-submit {
+  padding: 14px 22px;
+  font-size: clamp(12px, 1.3vw, 16px);
+}
+
+.score-saved-msg {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.1vw, 14px);
+  letter-spacing: 0.25em;
+  color: var(--color-cyan);
+  text-shadow: 0 0 10px var(--color-cyan);
+  text-align: center;
+  padding: 8px 0;
+  animation: fadeInUp 0.4s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── ADD TO HOME SCREEN NUDGE ────────────────────────────────────────────── */

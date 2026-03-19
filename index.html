@@ -46,6 +46,15 @@
   <div class="title-content">
     <h1 class="game-title">JET<br>HORIZON</h1>
     <button id="start-btn" class="btn-space">SPACE</button>
+
+    <!-- High Score Leaderboard -->
+    <div class="leaderboard" id="leaderboard">
+      <div class="leaderboard-label">TOP PILOTS</div>
+      <div class="leaderboard-list" id="leaderboard-list">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
     <div class="title-controls">
       <div class="ctrl-row"><span class="ctrl-key">← →</span><span class="ctrl-desc">STEER</span></div>
       <div class="ctrl-row"><span class="ctrl-key">↑ ↓</span><span class="ctrl-desc">ROLL AXIS</span></div>
@@ -85,6 +94,10 @@
       <div class="score-row"><span class="score-label">LEVEL</span><span id="go-level" class="score-val">1</span></div>
       <div class="score-row"><span class="score-label">COINS</span><span id="go-coins" class="score-val">0</span></div>
       <div class="score-row"><span class="score-label">BONUS</span><span id="go-coin-mult" class="score-val">1.00×</span></div>
+    </div>
+    <div class="score-submit" id="score-submit">
+      <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
+      <button id="submit-score-btn" class="btn-space btn-submit">SUBMIT</button>
     </div>
     <button id="restart-btn" class="btn-space">AGAIN</button>
   </div>
