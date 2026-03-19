@@ -355,13 +355,14 @@ html, body {
 
 /* Staggered fade-in animation */
 @keyframes goReveal {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+  0%   { opacity: 0; transform: translateY(18px) scale(0.92); }
+  60%  { opacity: 1; transform: translateY(-3px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 .go-anim {
   opacity: 0;
-  animation: goReveal 0.45s ease-out forwards;
-  animation-delay: calc(var(--d) * 0.12s + 0.1s);
+  animation: goReveal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--d) * 0.1s + 0.08s);
 }
 
 .gameover-title {
@@ -390,7 +391,7 @@ html, body {
 }
 .go-hero-val {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(52px, 12vw, 96px);
+  font-size: clamp(64px, 16vw, 112px);
   font-weight: 700;
   color: #fff;
   line-height: 1;
@@ -406,6 +407,7 @@ html, body {
   padding: 4px 16px;
   border-radius: 20px;
   background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   margin-bottom: 6px;
 }
 .go-best-label {
@@ -452,6 +454,25 @@ html, body {
   font-size: clamp(7px, 0.65vw, 9px);
   letter-spacing: 0.3em;
   color: rgba(255,255,255,0.3);
+}
+
+/* Game over action buttons row */
+.go-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btn-exit {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.15);
+  font-size: clamp(11px, 1.1vw, 14px);
+  padding: 14px 22px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.2em;
+}
+.btn-exit:hover {
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.3);
 }
 
 /* ── BUTTONS ──────────────────────────────────────────── */
