@@ -155,12 +155,5 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  // ── DELETE: clear all scores (one-time admin) ───────────────────────────
-  if (req.method === 'DELETE') {
-    await redis('DEL', KEY);
-    res.status(200).json({ cleared: true });
-    return;
-  }
-
   res.status(405).json({ error: 'Method not allowed.' });
 };
