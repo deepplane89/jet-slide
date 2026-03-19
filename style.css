@@ -696,7 +696,9 @@ html, body {
   padding: 6px 10px;
   pointer-events: none;
   white-space: pre;
+  display: none;
 }
+.debug-overlay.visible { display: block; }
 
 /* ── CRASH FLASH ──────────────────────────────────────── */
 @keyframes crash-flash {
