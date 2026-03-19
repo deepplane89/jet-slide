@@ -1094,6 +1094,7 @@ html, body {
 @media (hover: none) and (pointer: coarse) {
   .level-chooser { display: flex; }
   .title-controls { display: none; } /* hide keyboard hints on touch devices */
+  .level-btn span { display: none; } /* hide level names on mobile, keep numbers */
 }
 
 /* ── ADD TO HOME SCREEN NUDGE ────────────────────────────────────────────── */
