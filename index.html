@@ -92,21 +92,20 @@
       <span class="go-hero-label">SCORE</span>
       <span class="go-hero-val" id="go-score">0</span>
     </div>
-    <div class="go-best go-anim" style="--d:2">
+    <div class="go-best go-anim" id="go-best-wrap" style="--d:2">
       <span class="go-best-label">BEST</span>
       <span class="go-best-val" id="go-best">0</span>
     </div>
-    <div class="go-stats go-anim" style="--d:3">
-      <div class="go-stat"><span class="go-stat-val" id="go-level">1</span><span class="go-stat-label">LEVEL</span></div>
-      <div class="go-stat"><span class="go-stat-val" id="go-coins">0</span><span class="go-stat-label">COINS</span></div>
-      <div class="go-stat"><span class="go-stat-val" id="go-coin-mult">1.00×</span><span class="go-stat-label">BONUS</span></div>
+    <div class="go-sub go-anim" style="--d:3">
+      <span id="go-coins">0</span> coins · <span id="go-coin-mult">1.00×</span> bonus
     </div>
     <div class="score-submit go-anim" id="score-submit" style="--d:4">
-      <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
       <button id="submit-score-btn" class="btn-space btn-submit">SUBMIT</button>
+      <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
+      <button id="submit-confirm-btn" class="btn-space btn-submit">GO</button>
     </div>
     <div class="go-actions go-anim" style="--d:5">
-      <button id="restart-btn" class="btn-space">TRY AGAIN</button>
+      <button id="restart-btn" class="btn-space btn-retry">TRY AGAIN</button>
       <button id="gameover-exit-btn" class="btn-space btn-exit">EXIT</button>
     </div>
   </div>

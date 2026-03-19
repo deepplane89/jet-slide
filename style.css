@@ -424,36 +424,16 @@ html, body {
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Compact stat pills — LEVEL / COINS / BONUS in a row */
-.go-stats {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 4px;
-}
-.go-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  min-width: 60px;
-}
-.go-stat-val {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  line-height: 1;
-  font-variant-numeric: tabular-nums lining-nums;
-}
-.go-stat-label {
+/* Subtle coins · bonus line */
+.go-sub {
   font-family: var(--font-display);
-  font-size: clamp(7px, 0.65vw, 9px);
-  letter-spacing: 0.3em;
+  font-size: clamp(9px, 1vw, 12px);
+  letter-spacing: 0.2em;
   color: rgba(255,255,255,0.3);
+  margin-bottom: 8px;
+}
+.go-sub span {
+  color: rgba(255,255,255,0.55);
 }
 
 /* Game over action buttons row */
@@ -473,6 +453,56 @@ html, body {
 .btn-exit:hover {
   color: rgba(255,255,255,0.8);
   border-color: rgba(255,255,255,0.3);
+}
+
+/* TRY AGAIN — dominant CTA */
+.btn-retry {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: rgba(0, 240, 255, 0.95);
+  font-size: clamp(14px, 1.5vw, 18px);
+  padding: 16px 40px;
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+.btn-retry:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.6);
+}
+
+/* New best glow on BEST pill */
+@keyframes bestGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 200, 0, 0.3), 0 0 20px rgba(255, 200, 0, 0.1); }
+  50%      { box-shadow: 0 0 14px rgba(255, 200, 0, 0.5), 0 0 30px rgba(255, 200, 0, 0.2); }
+}
+.go-best.new-best {
+  border-color: rgba(255, 200, 0, 0.5);
+  background: rgba(255, 200, 0, 0.1);
+  animation: bestGlow 1.8s ease-in-out infinite;
+}
+.go-best.new-best .go-best-label {
+  color: rgba(255, 200, 0, 0.8);
+}
+.go-best.new-best .go-best-val {
+  color: rgba(255, 200, 0, 0.95);
+}
+
+/* Expandable submit — collapsed = just SUBMIT button, expanded = input + GO */
+.score-submit .player-name-input,
+.score-submit .btn-submit-confirm {
+  display: none;
+}
+.score-submit.expanded #submit-score-btn {
+  display: none;
+}
+.score-submit.expanded .player-name-input {
+  display: block;
+}
+.score-submit.expanded #submit-confirm-btn {
+  display: inline-flex;
+}
+#submit-confirm-btn {
+  display: none;
 }
 
 /* ── BUTTONS ──────────────────────────────────────────── */
@@ -544,7 +574,7 @@ html, body {
 }
 .hud.hidden { display: none; }
 
-.hud-left  { justify-self: start; padding-left: 180px; } /* offset past debug overlay */
+.hud-left  { justify-self: start; padding-left: 16px; }
 .hud-center { justify-self: center; text-align: center; }
 .hud-right { justify-self: end; text-align: right; padding-right: 60px; }
 
@@ -1137,14 +1167,12 @@ html, body {
     padding: 2px 12px;
     margin-bottom: 2px;
   }
-  .go-stats { gap: 8px; margin-bottom: 2px; }
-  .go-stat {
-    padding: 4px 10px;
-    min-width: 50px;
-  }
-  .go-stat-val { font-size: clamp(14px, 2vw, 18px); }
+  .go-sub { margin-bottom: 4px; }
   .gameover-content .btn-space {
     padding: 8px 24px;
+  }
+  .btn-retry {
+    padding: 10px 28px;
   }
 
   /* ── A2HS BANNER — landscape adjust ───────────────────── */
