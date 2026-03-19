@@ -2,39 +2,65 @@
 // GET  /api/scores  → returns top 10 scores
 // POST /api/scores  → submits a new score, returns updated top 10
 //
-// Storage: /tmp/jet-horizon-scores.json (Vercel serverless ephemeral storage)
-// Note: /tmp is shared within the same Lambda instance; on cold start it's empty.
+// Storage: Upstash Redis (persistent, free tier: 500K commands/month)
+// Uses Redis REST API directly — no npm dependencies needed.
 
 'use strict';
 
-const fs   = require('fs');
-const path = require('path');
-
-const SCORES_FILE = '/tmp/jet-horizon-scores.json';
-const MAX_ENTRIES = 50;
+const REDIS_URL   = process.env.UPSTASH_REDIS_REST_URL;
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+const KEY         = 'jet-horizon:scores';   // sorted set key
 const TOP_N       = 10;
+const MAX_ENTRIES = 50;
 
 // In-memory rate-limit map: ip → last submit timestamp (ms)
 const rateLimitMap = new Map();
-const RATE_LIMIT_MS = 5000; // 5 seconds
+const RATE_LIMIT_MS = 5000;
 
-// ── Helpers ────────────────────────────────────────────────────────────────
+// ── Redis helpers (REST API, zero dependencies) ─────────────────────────
 
-function readScores() {
-  try {
-    if (fs.existsSync(SCORES_FILE)) {
-      const raw = fs.readFileSync(SCORES_FILE, 'utf8');
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) return parsed;
-    }
-  } catch (_) {
-    // File corrupt or missing — start fresh
-  }
-  return [];
+async function redis(...args) {
+  const r = await fetch(`${REDIS_URL}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${REDIS_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(args),
+  });
+  const data = await r.json();
+  if (data.error) throw new Error(data.error);
+  return data.result;
 }
 
-function writeScores(scores) {
-  fs.writeFileSync(SCORES_FILE, JSON.stringify(scores), 'utf8');
+// Pipeline: send multiple commands in one round-trip
+async function redisPipeline(commands) {
+  const r = await fetch(`${REDIS_URL}/pipeline`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${REDIS_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(commands),
+  });
+  const data = await r.json();
+  return data;
+}
+
+async function getTop(n = TOP_N) {
+  // ZREVRANGE returns highest scores first, WITHSCORES includes the score
+  const raw = await redis('ZREVRANGE', KEY, 0, n - 1, 'WITHSCORES');
+  // raw = [member1, score1, member2, score2, ...]
+  const results = [];
+  for (let i = 0; i < raw.length; i += 2) {
+    const parsed = JSON.parse(raw[i]);
+    results.push({
+      name:  parsed.name,
+      score: parseInt(raw[i + 1], 10),
+      date:  parsed.date,
+    });
+  }
+  return results;
 }
 
 function sanitizeName(raw) {
@@ -60,17 +86,21 @@ function cors(res) {
 module.exports = async function handler(req, res) {
   cors(res);
 
-  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
+  // If Redis is not configured, return empty (graceful fallback)
+  if (!REDIS_URL || !REDIS_TOKEN) {
+    if (req.method === 'GET') return res.status(200).json([]);
+    return res.status(503).json({ error: 'Leaderboard storage not configured.' });
+  }
+
   // ── GET: return top 10 ──────────────────────────────────────────────────
   if (req.method === 'GET') {
-    const scores = readScores();
-    const top10  = scores.slice(0, TOP_N);
-    res.status(200).json(top10);
+    const top = await getTop();
+    res.status(200).json(top);
     return;
   }
 
@@ -83,7 +113,7 @@ module.exports = async function handler(req, res) {
     const now = Date.now();
     const lastSubmit = rateLimitMap.get(ip) || 0;
     if (now - lastSubmit < RATE_LIMIT_MS) {
-      res.status(429).json({ error: 'Too many requests — wait a moment before submitting again.' });
+      res.status(429).json({ error: 'Too many requests — wait a moment.' });
       return;
     }
     rateLimitMap.set(ip, now);
@@ -101,7 +131,6 @@ module.exports = async function handler(req, res) {
     const name  = sanitizeName(body.name);
     const score = body.score;
 
-    // Validate score
     if (
       typeof score !== 'number' ||
       !Number.isFinite(score)   ||
@@ -112,18 +141,19 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    // Load, append, sort, trim, save
-    const scores = readScores();
-    scores.push({ name, score, date: now });
-    scores.sort((a, b) => b.score - a.score);
-    const trimmed = scores.slice(0, MAX_ENTRIES);
-    writeScores(trimmed);
+    // Store as sorted set member. The member is JSON so each entry is unique.
+    const member = JSON.stringify({ name, date: now });
 
-    const top10 = trimmed.slice(0, TOP_N);
-    res.status(200).json(top10);
+    // Pipeline: add score + trim to MAX_ENTRIES + get top 10
+    await redisPipeline([
+      ['ZADD', KEY, score, member],
+      ['ZREMRANGEBYRANK', KEY, 0, -(MAX_ENTRIES + 1)],
+    ]);
+
+    const top = await getTop();
+    res.status(200).json(top);
     return;
   }
 
-  // Unsupported method
   res.status(405).json({ error: 'Method not allowed.' });
 };
