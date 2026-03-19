@@ -487,22 +487,13 @@ html, body {
   color: rgba(255, 200, 0, 0.95);
 }
 
-/* Expandable submit — collapsed = just SUBMIT button, expanded = input + GO */
-.score-submit .player-name-input,
-.score-submit .btn-submit-confirm {
-  display: none;
-}
-.score-submit.expanded #submit-score-btn {
-  display: none;
-}
-.score-submit.expanded .player-name-input {
-  display: block;
-}
-.score-submit.expanded #submit-confirm-btn {
-  display: inline-flex;
-}
-#submit-confirm-btn {
-  display: none;
+/* First-time name input — compact inline row */
+.score-submit.hidden { display: none; }
+.btn-submit-go {
+  padding: 10px 14px;
+  font-size: 16px;
+  min-width: unset;
+  line-height: 1;
 }
 
 /* ── BUTTONS ──────────────────────────────────────────── */
@@ -1365,24 +1356,19 @@ html, body {
 
 .player-name-input {
   font-family: 'Zain', sans-serif;
-  font-size: clamp(14px, 1.6vw, 19px);
+  font-size: clamp(11px, 1.2vw, 14px);
   font-weight: 300;
-  letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.92);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-bottom-color: rgba(255,255,255,0.1);
-  padding: 14px 18px;
-  border-radius: 14px;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 14px;
+  border-radius: 10px;
   outline: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.22),
-    inset 0 -1px 0 rgba(0,0,0,0.18),
-    0 4px 24px rgba(0,0,0,0.35);
   transition: border-color 0.2s, box-shadow 0.2s;
-  width: 160px;
+  width: 130px;
   text-align: center;
   caret-color: var(--color-cyan);
   text-transform: uppercase;
@@ -1392,12 +1378,8 @@ html, body {
   letter-spacing: 0.25em;
 }
 .player-name-input:focus {
-  border-color: rgba(0,240,255,0.55);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.22),
-    inset 0 -1px 0 rgba(0,0,0,0.18),
-    0 0 0 2px rgba(0,240,255,0.15),
-    0 4px 24px rgba(0,0,0,0.35);
+  border-color: rgba(0,240,255,0.4);
+  box-shadow: 0 0 0 2px rgba(0,240,255,0.1);
 }
 
 .btn-submit {
