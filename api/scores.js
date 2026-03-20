@@ -53,11 +53,16 @@ async function getTop(n = TOP_N) {
   // raw = [member1, score1, member2, score2, ...]
   const results = [];
   for (let i = 0; i < raw.length; i += 2) {
-    const parsed = JSON.parse(raw[i]);
+    let name;
+    try {
+      const parsed = JSON.parse(raw[i]);
+      name = parsed.name || raw[i];
+    } catch (_) {
+      name = raw[i]; // plain name string (new format)
+    }
     results.push({
-      name:  parsed.name,
+      name,
       score: parseInt(raw[i + 1], 10),
-      date:  parsed.date,
     });
   }
   return results;
@@ -141,14 +146,26 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    // Store as sorted set member. The member is JSON so each entry is unique.
-    const member = JSON.stringify({ name, date: now });
-
-    // Pipeline: add score + trim to MAX_ENTRIES + get top 10
-    await redisPipeline([
-      ['ZADD', KEY, score, member],
-      ['ZREMRANGEBYRANK', KEY, 0, -(MAX_ENTRIES + 1)],
-    ]);
+    // One entry per player name — use name as the member key so ZADD GT
+    // only updates if the new score is higher than the existing one.
+    // First, remove any legacy entries for this name (old format: {name, date} JSON members)
+    const allRaw = await redis('ZRANGE', KEY, 0, -1);
+    const toRemove = [];
+    for (const raw of allRaw) {
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed.name && parsed.name.toLowerCase() === name.toLowerCase() && raw !== name) {
+          toRemove.push(raw);
+        }
+      } catch (_) {}
+    }
+    const cmds = [];
+    for (const m of toRemove) cmds.push(['ZREM', KEY, m]);
+    // Use the player name directly as the sorted set member (one entry per name)
+    // ZADD GT: only update if the new score is greater than the existing score
+    cmds.push(['ZADD', KEY, 'GT', score, name]);
+    cmds.push(['ZREMRANGEBYRANK', KEY, 0, -(MAX_ENTRIES + 1)]);
+    await redisPipeline(cmds);
 
     const top = await getTop();
     res.status(200).json(top);
