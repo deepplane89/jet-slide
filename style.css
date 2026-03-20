@@ -61,6 +61,8 @@ html, body {
   opacity: 1;
   transition: opacity 0.7s ease;
   pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .overlay.hidden { display: none; }
 .overlay.fading-out {
@@ -83,7 +85,10 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-4);
+  padding: env(safe-area-inset-top, 16px) var(--space-4) env(safe-area-inset-bottom, 24px);
+  margin: auto;
+  width: 100%;
 }
 
 .title-glow-ring {
@@ -1715,11 +1720,20 @@ html, body {
 }
 
 /* ── MOBILE RESPONSIVE ──────────────────────────────────────────── */
+/* Mobile portrait — tighten everything */
 @media (max-width: 420px) {
+  .title-content {
+    gap: var(--space-3);
+  }
+  .game-title {
+    font-size: clamp(48px, 11vw, 90px);
+  }
   .skin-viewer {
     max-width: 290px;
     grid-template-columns: 38px 1fr 38px;
     column-gap: var(--space-1);
+    row-gap: var(--space-1);
+    padding: var(--space-1) 0;
   }
   .skin-nav {
     width: 32px;
@@ -1733,5 +1747,9 @@ html, body {
   .skin-action-btn {
     font-size: 12px;
     padding: 4px 10px;
+  }
+  .leaderboard {
+    max-height: 140px;
+    overflow-y: auto;
   }
 }
