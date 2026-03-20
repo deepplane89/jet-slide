@@ -77,7 +77,7 @@ function sanitizeName(raw) {
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Origin',  '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
@@ -152,13 +152,6 @@ module.exports = async function handler(req, res) {
 
     const top = await getTop();
     res.status(200).json(top);
-    return;
-  }
-
-  // ── DELETE: clear leaderboard (admin only) ─────────────────────────────
-  if (req.method === 'DELETE') {
-    await redis('DEL', KEY);
-    res.status(200).json({ ok: true, message: 'Leaderboard cleared.' });
     return;
   }
 
