@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#03070f"/>
+  <!-- Horizon line -->
+  <line x1="40" y1="320" x2="472" y2="320" stroke="#00eeff" stroke-width="2" opacity="0.6"/>
+  <!-- Grid lines (perspective) -->
+  <line x1="256" y1="320" x2="40" y2="480" stroke="#00eeff" stroke-width="1" opacity="0.25"/>
+  <line x1="256" y1="320" x2="472" y2="480" stroke="#00eeff" stroke-width="1" opacity="0.25"/>
+  <line x1="256" y1="320" x2="148" y2="480" stroke="#00eeff" stroke-width="1" opacity="0.15"/>
+  <line x1="256" y1="320" x2="364" y2="480" stroke="#00eeff" stroke-width="1" opacity="0.15"/>
+  <!-- Horizontal grid lines -->
+  <line x1="80" y1="380" x2="432" y2="380" stroke="#00eeff" stroke-width="1" opacity="0.15"/>
+  <line x1="56" y1="430" x2="456" y2="430" stroke="#00eeff" stroke-width="1" opacity="0.1"/>
+  <!-- Sun -->
+  <circle cx="256" cy="260" r="80" fill="#ff9500" opacity="0.9"/>
+  <rect x="40" y="264" width="432" height="4" fill="#03070f" opacity="0.8"/>
+  <rect x="40" y="274" width="432" height="5" fill="#03070f" opacity="0.8"/>
+  <rect x="40" y="285" width="432" height="6" fill="#03070f" opacity="0.8"/>
+  <rect x="40" y="298" width="432" height="8" fill="#03070f" opacity="0.8"/>
+  <rect x="40" y="312" width="432" height="200" fill="#03070f"/>
+  <!-- Ship silhouette -->
+  <polygon points="256,140 240,175 234,178 232,185 236,185 244,180 256,195 268,180 276,185 280,185 278,178 272,175" fill="#aaddff" opacity="0.9"/>
+  <!-- Thruster glow -->
+  <ellipse cx="256" cy="198" rx="6" ry="14" fill="#00eeff" opacity="0.7"/>
+  <ellipse cx="256" cy="198" rx="3" ry="10" fill="#ffffff" opacity="0.5"/>
+  <!-- JH text -->
+  <text x="256" y="480" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="42" fill="#00eeff" letter-spacing="12" opacity="0.7">JET HORIZON</text>
+</svg>
