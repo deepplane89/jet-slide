@@ -50,6 +50,23 @@
 <div id="title-screen" class="overlay">
   <div class="title-content">
     <h1 class="game-title">JET<br>HORIZON</h1>
+
+    <!-- Skin Viewer -->
+    <div id="skin-viewer" class="skin-viewer">
+      <button id="skin-prev" class="skin-nav skin-nav-left" aria-label="Previous skin">‹</button>
+      <div class="skin-viewer-info">
+        <div id="skin-viewer-label" class="skin-viewer-label">HEX STEALTH</div>
+        <div id="skin-viewer-price" class="skin-viewer-price owned">OWNED</div>
+      </div>
+      <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
+      <div id="skin-viewer-dots" class="skin-viewer-dots"></div>
+      <div id="skin-viewer-action" class="skin-viewer-action"></div>
+      <div class="title-coin-display">
+        <span class="hud-coin-icon">⬡</span>
+        <span id="title-coin-count">0</span>
+      </div>
+    </div>
+
     <button id="start-btn" class="btn-space">SPACE</button>
     <button id="death-run-btn" class="btn-death-run">DEATH RUN</button>
 
@@ -66,8 +83,6 @@
       <div class="ctrl-row"><span class="ctrl-key">↑ ↓</span><span class="ctrl-desc">ROLL AXIS</span></div>
       <div class="ctrl-row"><span class="ctrl-key">SPACE</span><span class="ctrl-desc">PAUSE</span></div>
     </div>
-    <!-- hidden slider kept for JS compatibility -->
-    <span id="title-coin-count" style="display:none">0</span>
     <!-- Level chooser — mobile only, shown via CSS -->
     <div class="level-chooser" id="level-chooser">
       <div class="level-chooser-label">START AT LEVEL</div>

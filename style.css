@@ -1487,3 +1487,251 @@ html, body {
   text-transform: uppercase;
   margin-top: 4px;
 }
+
+/* ── SKIN VIEWER ───────────────────────────────────────────────────────────── */
+.skin-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 320px;
+  padding: var(--space-3) 0;
+  position: relative;
+}
+
+.skin-viewer > .skin-nav {
+  /* Nav buttons sit as flex row around info — handled by the row wrapper */
+}
+
+/* Row containing arrows + info */
+.skin-viewer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 160px;
+}
+
+/* The actual arrows + info in a horizontal row */
+.skin-viewer {
+  /* Row of: prev arrow, info block, next arrow */
+  flex-direction: column;
+}
+
+/* Override: use a flex row for the arrow + info row */
+.skin-viewer .skin-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: center;
+  width: 100%;
+}
+
+/* Apply row layout directly to the skin-viewer using grid areas */
+.skin-viewer {
+  display: grid;
+  grid-template-areas:
+    "prev info next"
+    ".    dots .   "
+    ".    action .  "
+    ".    wallet .  ";
+  grid-template-columns: 44px 1fr 44px;
+  column-gap: var(--space-2);
+  row-gap: var(--space-2);
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  max-width: 340px;
+  padding: var(--space-3) 0;
+}
+
+.skin-nav-left  { grid-area: prev; }
+.skin-nav-right { grid-area: next; }
+.skin-viewer-info  { grid-area: info; }
+.skin-viewer-dots  { grid-area: dots; }
+.skin-viewer-action { grid-area: action; }
+.title-coin-display { grid-area: wallet; }
+
+.skin-nav {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.85);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), border-color var(--transition);
+  padding: 0;
+  user-select: none;
+}
+.skin-nav:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.skin-viewer-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(16px, 2.5vw, 20px);
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: default;
+  user-select: none;
+}
+
+.skin-viewer-price {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+.skin-viewer-price.owned    { color: #4caf80; }
+.skin-viewer-price.affordable { color: var(--color-gold); }
+.skin-viewer-price.expensive { color: rgba(255,255,255,0.35); }
+
+.skin-viewer-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.skin-dot.active {
+  background: #fff;
+  transform: scale(1.25);
+}
+.skin-dot.locked {
+  background: rgba(255,255,255,0.1);
+  opacity: 0.5;
+}
+
+.skin-viewer-action {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin-action-btn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: opacity var(--transition), background var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.skin-action-btn.selected {
+  background: transparent;
+  color: rgba(255,255,255,0.35);
+  cursor: default;
+}
+.skin-action-btn.selectable {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.skin-action-btn.selectable:hover {
+  background: rgba(255,255,255,0.22);
+}
+.skin-action-btn.buyable {
+  background: var(--color-gold);
+  color: #000;
+}
+.skin-action-btn.buyable:hover {
+  background: #ffe033;
+}
+.skin-action-btn.locked {
+  background: transparent;
+  color: rgba(255,255,255,0.3);
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Coin wallet display on title screen */
+.title-coin-display {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+.title-coin-display .hud-coin-icon {
+  font-size: 14px;
+  color: var(--color-gold);
+}
+
+/* ── SKIN UNLOCK BANNER ─────────────────────────────────────────────── */
+.skin-unlock-banner {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  z-index: 300;
+  background: rgba(10, 6, 30, 0.95);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.skin-unlock-banner.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── MOBILE RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 420px) {
+  .skin-viewer {
+    max-width: 290px;
+    grid-template-columns: 38px 1fr 38px;
+    column-gap: var(--space-1);
+  }
+  .skin-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  .skin-viewer-label {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+  }
+  .skin-action-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
