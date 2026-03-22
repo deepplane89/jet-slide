@@ -1761,6 +1761,12 @@ html, body {
 .btn-campaign:active { background: rgba(0,238,255,0.12); }
 .btn-deathrun { border-color: #ff1a8c; color: #ff1a8c; }
 .btn-deathrun:active { background: rgba(255,26,140,0.12); }
+
+.level-badges { display: flex; gap: 6px; align-items: center; justify-content: center; min-height: 36px; }
+.level-badge { transition: opacity 0.3s, filter 0.3s; }
+.level-badge.locked { opacity: 0.45; filter: grayscale(1) brightness(0.6); }
+.level-badge.earned { opacity: 1; filter: drop-shadow(0 0 4px rgba(255,255,255,0.3)); }
+.level-badge.completion { filter: drop-shadow(0 0 8px rgba(255,200,0,0.6)); }
 .lb-collapsible .lb-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .lb-collapsible.lb-open .lb-body { max-height: 300px; }
 .lb-toggle { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
