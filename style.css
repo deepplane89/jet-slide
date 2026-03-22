@@ -1753,3 +1753,22 @@ html, body {
     overflow-y: auto;
   }
 }
+
+/* ── TITLE SCREEN REDESIGN ────────────────────────── */
+.title-mode-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; margin: 18px 0 14px; width: 100%; max-width: 320px; }
+.btn-mode { display: block; width: 100%; max-width: 300px; padding: 14px 0; font-family: 'Silkscreen', monospace; font-size: 16px; letter-spacing: 3px; background: transparent; color: #eee; border: 2px solid #555; border-radius: 6px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; text-align: center; -webkit-tap-highlight-color: transparent; }
+.btn-campaign { border-color: #00eeff; color: #00eeff; }
+.btn-campaign:active { background: rgba(0,238,255,0.12); }
+.btn-deathrun { border-color: #ff1a8c; color: #ff1a8c; }
+.btn-deathrun:active { background: rgba(255,26,140,0.12); }
+.lb-collapsible .lb-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.lb-collapsible.lb-open .lb-body { max-height: 300px; }
+.lb-toggle { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+.admin-panel { background: rgba(0,0,0,0.85); border: 1px solid #444; border-radius: 6px; padding: 12px; margin: 12px 0; text-align: center; }
+.admin-panel.hidden { display: none; }
+.admin-label { font-family: 'Silkscreen', monospace; font-size: 11px; color: #ff4444; letter-spacing: 2px; margin-bottom: 8px; }
+.admin-level-btns { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
+.admin-level-btns .level-btn { font-family: 'Silkscreen', monospace; font-size: 12px; background: transparent; color: #0af; border: 1px solid #0af; border-radius: 4px; padding: 6px 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.admin-level-btns .level-btn:active { background: rgba(0,170,255,0.2); }
+.title-controls { display: none !important; }
+.level-chooser { display: none !important; }

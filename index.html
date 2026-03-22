@@ -64,40 +64,34 @@
       </div>
     </div>
 
-    <button id="start-btn" class="btn-space">SPACE</button>
-    <button id="death-run-btn" class="btn-death-run">DEATH RUN</button>
+    <!-- Mode buttons -->
+    <div class="title-mode-buttons">
+      <button id="start-btn" class="btn-mode btn-campaign">▶ CAMPAIGN</button>
+      <button id="death-run-btn" class="btn-mode btn-deathrun">▶ DEATH RUN</button>
+    </div>
 
-    <!-- High Score Leaderboard -->
-    <div class="leaderboard" id="leaderboard">
-      <div class="leaderboard-label">TOP PILOTS</div>
-      <div class="leaderboard-list" id="leaderboard-list">
-        <!-- Populated by JS -->
+    <!-- Leaderboard (collapsible) -->
+    <div class="leaderboard lb-collapsible" id="leaderboard">
+      <div class="leaderboard-label lb-toggle" onclick="this.parentElement.classList.toggle('lb-open')">TOP PILOTS ▾</div>
+      <div class="leaderboard-list lb-body" id="leaderboard-list"></div>
+    </div>
+
+    <!-- Admin panel (triple-tap title to show) -->
+    <div id="admin-panel" class="admin-panel hidden">
+      <div class="admin-label">ADMIN</div>
+      <div class="admin-level-btns">
+        <button class="level-btn" data-level="0">L1</button>
+        <button class="level-btn" data-level="1">L2</button>
+        <button class="level-btn" data-level="2">L3</button>
+        <button class="level-btn" data-level="3">L4</button>
+        <button class="level-btn" data-level="4">L5</button>
       </div>
-    </div>
-
-    <div class="title-controls">
-      <div class="ctrl-row"><span class="ctrl-key">← →</span><span class="ctrl-desc">STEER</span></div>
-      <div class="ctrl-row"><span class="ctrl-key">↑ ↓</span><span class="ctrl-desc">ROLL AXIS</span></div>
-      <div class="ctrl-row"><span class="ctrl-key">SPACE</span><span class="ctrl-desc">PAUSE</span></div>
-    </div>
-    <!-- Level chooser — mobile only, shown via CSS -->
-    <div class="level-chooser" id="level-chooser">
-      <div class="level-chooser-label">START AT LEVEL</div>
-      <div class="level-chooser-btns">
-        <button class="level-btn" data-level="0">1<span>NEON DAWN</span></button>
-        <button class="level-btn" data-level="1">2<span>ULTRAVIOLET</span></button>
-        <button class="level-btn" data-level="2">3<span>CRIMSON VOID</span></button>
-        <button class="level-btn" data-level="3">4<span>ICE STORM</span></button>
-        <button class="level-btn" data-level="4">5<span>VOID SINGULARITY</span></button>
+      <div class="perf-toggle-wrap">
+        <span class="perf-label">PERF MODE</span>
+        <button id="perf-toggle" class="perf-toggle" aria-label="Toggle performance mode" aria-pressed="false">
+          <span class="perf-knob"></span>
+        </button>
       </div>
-    </div>
-
-    <!-- Performance Mode toggle -->
-    <div class="perf-toggle-wrap">
-      <span class="perf-label">PERFORMANCE MODE</span>
-      <button id="perf-toggle" class="perf-toggle" aria-label="Toggle performance mode" aria-pressed="false">
-        <span class="perf-knob"></span>
-      </button>
     </div>
   </div>
 </div>
@@ -210,6 +204,24 @@
   <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
 </footer>
 
-<script type="module" src="./game.js?v=1773887417"></script>
+<script>
+(function(){
+  var m={};
+  window._LS={getItem:function(k){return m[k]||null},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]},clear:function(){for(var k in m)delete m[k]}};
+})();
+</script>
+<!-- Skin Tuner (outside title-screen so it stays visible) -->
+<div id="skin-tuner" style="display:none;position:fixed;top:0;right:0;width:300px;height:100%;background:rgba(0,0,0,0.92);overflow-y:auto;z-index:9999;font-family:monospace;font-size:11px;color:#ccc;padding:10px;box-sizing:border-box;-webkit-overflow-scrolling:touch;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+    <span style="font-size:14px;font-weight:bold;color:#0af;">SKIN TUNER</span>
+    <button onclick="toggleSkinTuner()" style="background:none;border:1px solid #555;color:#fff;padding:2px 8px;cursor:pointer;">X</button>
+  </div>
+  <div id="skin-tuner-current" style="color:#ff0;margin-bottom:8px;"></div>
+  <div id="skin-tuner-sliders"></div>
+  <button id="skin-tuner-dump" style="margin-top:12px;background:#0af;color:#000;border:none;padding:6px 12px;cursor:pointer;font-family:monospace;font-size:11px;width:100%;">DUMP VALUES TO CONSOLE</button>
+</div>
+<button id="skin-tuner-btn" onclick="toggleSkinTuner()" style="display:none;position:fixed;top:10px;right:10px;z-index:9998;background:rgba(0,170,255,0.3);border:1px solid #0af;color:#0af;padding:4px 10px;font-family:monospace;font-size:11px;cursor:pointer;">TUNER</button>
+
+<script type="module" src="./game.js?v=1774150200"></script>
 </body>
 </html>
