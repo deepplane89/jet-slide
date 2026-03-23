@@ -939,27 +939,7 @@ html, body {
   align-items: center;
   justify-content: center;
 }
-.slider-track {
-  position: absolute;
-  width: 70%;
-  height: 4px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 2px;
-}
-.slider-knob {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.35);
-  background: rgba(255,255,255,0.08);
-  transition: transform 0.05s, border-color 0.15s;
-  pointer-events: none;
-}
-.slider-knob.active {
-  border-color: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.15);
-}
+
 
 /* Pause button — top right */
 .touch-pause {
