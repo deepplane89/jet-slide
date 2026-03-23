@@ -1001,9 +1001,9 @@ html, body {
   width: 220px;
 }
 .pause-gear {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   color: rgba(255,255,255,0.35);
@@ -1113,7 +1113,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 14px;
+  letter-spacing: 3px;
   color: rgba(255,255,255,0.25);
   pointer-events: auto;
   user-select: none;
