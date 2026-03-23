@@ -149,17 +149,75 @@
 
 </div>
 
-<!-- Mute button — outside #hud so it persists through pause/title screens -->
-<button id="mute-btn" class="mute-btn" aria-label="Toggle mute">♪</button>
+<!-- Settings gear (title screen, top-right) -->
+<button id="settings-btn" class="settings-btn" aria-label="Settings">⚙</button>
+
+<!-- Settings panel (shared by title + pause) -->
+<div id="settings-overlay" class="settings-overlay hidden">
+  <div class="settings-panel">
+    <div class="settings-header">
+      <span>SETTINGS</span>
+      <button id="settings-close" class="settings-close">✕</button>
+    </div>
+    <div class="settings-row">
+      <label>Music</label>
+      <input type="range" id="vol-music" min="0" max="100" value="80" class="vol-slider">
+      <button id="mute-music" class="mute-toggle">♪</button>
+    </div>
+    <div class="settings-row">
+      <label>SFX</label>
+      <input type="range" id="vol-sfx" min="0" max="100" value="80" class="vol-slider">
+      <button id="mute-sfx" class="mute-toggle">♪</button>
+    </div>
+    <div class="settings-row">
+      <label>Haptics</label>
+      <button id="haptic-toggle" class="toggle-btn on">ON</button>
+    </div>
+    <div class="settings-row">
+      <label>Joystick</label>
+      <button id="joystick-toggle" class="toggle-btn on">ON</button>
+    </div>
+    <div class="settings-row">
+      <label>Controls</label>
+      <button id="show-tutorial-btn" class="toggle-btn">HOW TO PLAY</button>
+    </div>
+    <div class="settings-footer">
+      <a href="./privacy.html" target="_blank" class="settings-link">Privacy Policy</a>
+    </div>
+  </div>
+</div>
 
 <!-- ── PAUSE OVERLAY ─────────────────────────────── -->
 <div id="pause-overlay" class="pause-overlay hidden">
   <div class="pause-content">
     <div class="pause-title">PAUSED</div>
     <div class="pause-actions">
-      <button class="btn-space" onclick="playResumeSound(); togglePause()">RETURN</button>
+      <button class="btn-space" onclick="playResumeSound(); togglePause()">CONTINUE</button>
       <button class="btn-space" onclick="playExitSound(); returnToTitle()">EXIT</button>
     </div>
+    <button id="pause-settings-btn" class="pause-gear" aria-label="Settings">⚙</button>
+  </div>
+</div>
+
+<!-- Onboarding overlay (first play only) -->
+<div id="onboarding-overlay" class="onboarding-overlay hidden">
+  <div class="onboarding-content">
+    <div class="onboarding-title">HOW TO PLAY</div>
+    <div class="onboarding-steps">
+      <div class="onboard-step">
+        <div class="onboard-icon">◁ ▷</div>
+        <div class="onboard-text">Tap left / right to steer<br><span class="onboard-sub">or drag the joystick at the bottom</span></div>
+      </div>
+      <div class="onboard-step">
+        <div class="onboard-icon">△</div>
+        <div class="onboard-text">Swipe up to barrel roll<br><span class="onboard-sub">slip through tight gaps sideways</span></div>
+      </div>
+      <div class="onboard-step">
+        <div class="onboard-icon">⬡</div>
+        <div class="onboard-text">Collect coins to unlock new ships</div>
+      </div>
+    </div>
+    <button id="onboarding-dismiss" class="btn-mode btn-campaign" style="margin-top:18px;">GOT IT</button>
   </div>
 </div>
 
