@@ -2183,3 +2183,457 @@ html, body {
   color: #ffcc00;
   font-weight: bold;
 }
+
+/* ═══════════════════════════════════════════════════
+   SHOP OVERLAY
+   ═══════════════════════════════════════════════════ */
+
+/* Shop button on title screen */
+.btn-shop {
+  background: linear-gradient(135deg, rgba(0,170,255,0.18), rgba(0,240,255,0.08));
+  border: 1.5px solid rgba(0,200,255,0.5);
+  color: #0cf;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: var(--text-sm, 13px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 10px 28px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-shop:hover, .btn-shop:active {
+  background: linear-gradient(135deg, rgba(0,170,255,0.3), rgba(0,240,255,0.15));
+  border-color: rgba(0,240,255,0.8);
+  text-shadow: 0 0 8px rgba(0,240,255,0.6);
+}
+
+/* Overlay */
+#shop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(3,7,15,0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: shopSlideUp 0.35s ease-out;
+}
+#shop-overlay.hidden {
+  display: none;
+}
+@keyframes shopSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.shop-content {
+  width: 92%;
+  max-width: 420px;
+  max-height: 88vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Header */
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+.shop-title {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #fff;
+  margin: 0;
+}
+.shop-coins {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 18px;
+  color: #ffcc00;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tabs */
+.shop-tabs {
+  display: flex;
+  gap: 0;
+  position: relative;
+  border-bottom: 2px solid rgba(255,255,255,0.08);
+}
+.shop-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+}
+.shop-tab.active {
+  color: #fff;
+}
+.shop-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #0cf;
+  border-radius: 1px;
+  animation: tabSlide 0.25s ease-out;
+}
+@keyframes tabSlide {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Powerup Cards Grid */
+.shop-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 4px 0;
+}
+.shop-card {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.shop-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.06), transparent 70%);
+  pointer-events: none;
+}
+.shop-card:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+.shop-card.affordable {
+  animation: cardPulse 2s ease-in-out infinite;
+}
+@keyframes cardPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,255,0); }
+  50%      { box-shadow: 0 0 12px 2px rgba(0,200,255,0.3); }
+}
+.shop-card.locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.shop-card-icon {
+  font-size: 32px;
+  animation: iconBreathe 3s ease-in-out infinite;
+}
+@keyframes iconBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+.shop-card-name {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.8);
+}
+.shop-card-pips {
+  display: flex;
+  gap: 4px;
+}
+.shop-pip {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+.shop-pip.filled {
+  box-shadow: 0 0 6px 1px currentColor;
+}
+.shop-card-desc {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  line-height: 1.3;
+}
+.shop-card-cost {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  color: #ffcc00;
+  font-weight: 600;
+}
+.shop-card-maxed {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 11px;
+  color: rgba(0,240,255,0.6);
+  letter-spacing: 0.15em;
+}
+.shop-card-lock {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 11px;
+  color: rgba(255,204,0,0.6);
+  letter-spacing: 0.1em;
+}
+
+/* Stat Rows */
+.shop-stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+.shop-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.shop-stat-row:hover {
+  background: rgba(255,255,255,0.08);
+}
+.shop-stat-row.affordable {
+  animation: cardPulse 2s ease-in-out infinite;
+}
+.shop-stat-row.locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.shop-stat-name {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  flex: 1;
+  letter-spacing: 0.05em;
+}
+.shop-stat-pips {
+  display: flex;
+  gap: 3px;
+}
+.shop-stat-tier {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  min-width: 60px;
+}
+.shop-stat-cost {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  color: #ffcc00;
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
+}
+.shop-stat-maxed {
+  font-size: 11px;
+  color: rgba(0,240,255,0.5);
+  letter-spacing: 0.1em;
+  min-width: 60px;
+  text-align: right;
+}
+.shop-stat-lock {
+  font-size: 11px;
+  color: rgba(255,204,0,0.5);
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Detail View */
+.shop-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.shop-detail.hidden {
+  display: none;
+}
+.shop-back-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+.shop-back-btn:hover {
+  color: #fff;
+}
+.shop-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shop-detail-icon {
+  font-size: 40px;
+  animation: iconBreathe 3s ease-in-out infinite;
+}
+.shop-detail-name {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.shop-detail-pips {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.shop-detail-pips .shop-pip {
+  width: 12px;
+  height: 12px;
+}
+.shop-detail-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.shop-detail-tier {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+  transition: all 0.2s;
+}
+.shop-detail-tier.active {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+}
+.shop-detail-tier.next {
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.2);
+}
+.shop-detail-tier-num {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  min-width: 24px;
+}
+.shop-detail-tier.active .shop-detail-tier-num {
+  color: rgba(255,255,255,0.8);
+}
+.shop-detail-tier-desc {
+  flex: 1;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.shop-detail-tier.active .shop-detail-tier-desc {
+  color: rgba(255,255,255,0.8);
+}
+.shop-detail-tier-cost {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+}
+.shop-detail-tier.active .shop-detail-tier-cost {
+  color: #ffcc00;
+}
+.shop-detail-maxed {
+  text-align: center;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 14px;
+  color: rgba(0,240,255,0.6);
+  letter-spacing: 0.2em;
+  padding: 12px 0;
+}
+
+/* Upgrade Button */
+.btn-upgrade {
+  background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(0,150,255,0.08));
+  border: 1.5px solid rgba(0,200,255,0.4);
+  color: #fff;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.btn-upgrade:hover {
+  background: linear-gradient(135deg, rgba(0,200,255,0.25), rgba(0,150,255,0.15));
+  border-color: rgba(0,240,255,0.7);
+}
+.btn-upgrade.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+/* Shimmer effect */
+.btn-upgrade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+.btn-upgrade.disabled::after {
+  display: none;
+}
+
+/* Purchase animation */
+.shop-purchase-anim {
+  animation: purchaseBurst 0.4s ease-out;
+}
+@keyframes purchaseBurst {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(0.92); }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Close button */
+.shop-close-btn {
+  align-self: center;
+  margin-top: 8px;
+}
+
+/* ── Tab content visibility ── */
+.shop-tab-content.hidden {
+  display: none;
+}

@@ -79,6 +79,7 @@
       <button id="start-btn" class="btn-mode btn-campaign">▶ CAMPAIGN</button>
       <div id="level-badges" class="level-badges"></div>
       <button id="death-run-btn" class="btn-mode btn-deathrun">▶ DEATH RUN</button>
+      <button id="shop-btn" class="btn-space btn-shop" onclick="openShop()">SHOP</button>
     </div>
 
     <!-- Leaderboard (collapsible) -->
@@ -180,6 +181,32 @@
       <button id="restart-btn" class="btn-space btn-retry">TRY AGAIN</button>
       <button id="gameover-exit-btn" class="btn-space btn-exit">EXIT</button>
     </div>
+  </div>
+</div>
+
+<!-- ── SHOP OVERLAY ────────────────────────────────── -->
+<div id="shop-overlay" class="overlay hidden">
+  <div class="shop-content">
+    <div class="shop-header">
+      <h2 class="shop-title">SHOP</h2>
+      <div class="shop-coins"><span class="hud-coin-icon">⬡</span> <span id="shop-coin-count">0</span></div>
+    </div>
+    <div class="shop-tabs">
+      <button class="shop-tab active" data-tab="powerups">POWERUPS</button>
+      <button class="shop-tab" data-tab="stats">STATS</button>
+    </div>
+    <div class="shop-tab-content" id="shop-tab-powerups">
+      <div class="shop-cards" id="shop-powerup-cards"></div>
+    </div>
+    <div class="shop-tab-content hidden" id="shop-tab-stats">
+      <div class="shop-stat-list" id="shop-stat-cards"></div>
+    </div>
+    <!-- Detail view (hidden by default) -->
+    <div class="shop-detail hidden" id="shop-detail">
+      <button class="shop-back-btn" onclick="closeShopDetail()">&#9668; BACK</button>
+      <div id="shop-detail-content"></div>
+    </div>
+    <button class="btn-space btn-exit shop-close-btn" onclick="closeShop()">CLOSE</button>
   </div>
 </div>
 
