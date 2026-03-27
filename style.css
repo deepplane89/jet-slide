@@ -2692,8 +2692,27 @@ html, body {
 }
 
 /* ═══════════════════════════════════════════════════
-   MISSIONS SYSTEM
+   MISSION LADDER SYSTEM
    ═══════════════════════════════════════════════════ */
+
+/* Fuel cell display on title */
+.title-currency-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.title-fuelcell-display {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 16px;
+  color: #4488ff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fuelcell-icon {
+  font-size: 14px;
+}
 
 /* Missions button on title */
 .btn-missions {
@@ -2725,13 +2744,18 @@ html, body {
   width: 92%;
   max-width: 420px;
   max-height: 88vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   -webkit-overflow-scrolling: touch;
 }
 
+.missions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
 .missions-title {
   font-family: var(--font-display, 'Rajdhani', sans-serif);
   font-size: 24px;
@@ -2739,107 +2763,82 @@ html, body {
   letter-spacing: 0.25em;
   color: #fff;
   margin: 0;
-  text-align: center;
 }
-
-/* Active mission rows */
-.missions-active {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.mission-row {
+.missions-fuel {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 16px;
+  color: #4488ff;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+}
+
+/* Ladder */
+.missions-ladder {
+  max-height: 55vh;
+  overflow-y: auto;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
+
+.ladder-rung {
   padding: 8px 12px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 6px;
+  margin-bottom: 4px;
+  border-radius: 5px;
   font-family: var(--font-display, 'Rajdhani', sans-serif);
   font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.05em;
-}
-.mission-row.done {
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(100,255,100,0.15);
-}
-.mission-check {
-  min-width: 16px;
-  color: rgba(100,255,100,0.8);
-  font-size: 13px;
-}
-.mission-desc {
-  flex: 1;
-}
-.mission-xp {
-  font-size: 11px;
-  opacity: 0.5;
-  white-space: nowrap;
-}
-.mission-row.done .mission-xp {
-  opacity: 0.8;
-  color: rgba(100,255,100,0.7);
-}
-
-/* Earned bonuses header */
-.missions-bonuses-header {
-  font-family: var(--font-display, 'Rajdhani', sans-serif);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.3);
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* Bonus cards */
-.bonus-card {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  margin-bottom: 6px;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.4);
+  letter-spacing: 0.06em;
   border-left: 3px solid transparent;
-  font-family: var(--font-display, 'Rajdhani', sans-serif);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
-.bonus-card.earned {
+
+/* Mission states */
+.ladder-rung.mission.completed {
+  color: rgba(255,255,255,0.5);
+  border-left-color: rgba(100,255,100,0.4);
+}
+.ladder-rung.mission.completed::before {
+  content: '\2714  ';
+  color: #66ff88;
+}
+.ladder-rung.mission.current {
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.04);
+  border-left-color: rgba(0,238,255,0.6);
+  box-shadow: inset 3px 0 10px -3px rgba(0,238,255,0.3);
+}
+.ladder-rung.mission.current::before {
+  content: '\25B8  ';
+  color: #00eeff;
+}
+.ladder-rung.mission.locked {
+  color: rgba(255,255,255,0.2);
+}
+
+/* Reward states */
+.ladder-rung.reward {
+  padding: 10px 12px;
+  font-weight: bold;
+}
+.ladder-rung.reward.earned {
+  border-left-color: var(--reward-color);
+  box-shadow: inset 4px 0 12px -4px var(--reward-color);
   color: rgba(255,255,255,0.9);
-  border-left-color: var(--bonus-color);
-  box-shadow: inset 4px 0 12px -4px var(--bonus-color);
 }
-.bonus-card.locked {
-  color: rgba(255,255,255,0.25);
+.ladder-rung.reward.next {
+  border-left-color: var(--reward-color);
+  opacity: 0.5;
+  animation: rewardPulse 2s ease-in-out infinite;
+}
+.ladder-rung.reward.locked {
+  opacity: 0.2;
   border-left-color: rgba(255,255,255,0.08);
 }
-.bonus-card.next {
-  color: rgba(255,255,255,0.4);
-  border-left-color: rgba(255,255,255,0.15);
-  animation: nextBonusPulse 2s ease-in-out infinite;
-}
-@keyframes nextBonusPulse {
-  0%, 100% { box-shadow: inset 4px 0 8px -4px rgba(255,255,255,0.1); }
-  50% { box-shadow: inset 4px 0 16px -4px rgba(255,255,255,0.25); }
-}
-.bonus-card .bonus-label { flex: 1; }
-.bonus-card .bonus-meta {
-  font-size: 10px;
-  opacity: 0.5;
-  white-space: nowrap;
-}
 
-/* Sets info */
-.missions-sets-info {
-  font-family: var(--font-display, 'Rajdhani', sans-serif);
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  text-align: center;
-  letter-spacing: 0.1em;
+@keyframes rewardPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
 }
 
 .missions-close-btn {
@@ -2853,16 +2852,16 @@ html, body {
   top: -36px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(100,255,100,0.12);
+  border: 1px solid rgba(100,255,100,0.1);
   border-radius: 5px;
   padding: 4px 14px;
   font-family: var(--font-display, 'Rajdhani', sans-serif);
   font-size: 10px;
-  letter-spacing: 0.1em;
-  color: rgba(180,255,180,0.7);
+  letter-spacing: 0.08em;
+  color: rgba(180,255,180,0.6);
   z-index: 400;
   pointer-events: none;
   transition: top 0.3s ease;
@@ -2870,31 +2869,21 @@ html, body {
 }
 .mission-toast.show { top: 6px; }
 
-/* ── Death screen mission lines ── */
-.go-missions-section {
+/* ── Death screen ladder lines ── */
+.go-ladder-section {
   text-align: center;
   padding: 4px 0;
 }
-.go-mission-line {
+.go-ladder-line {
   font-family: var(--font-display, 'Rajdhani', sans-serif);
   font-size: 12px;
-  color: rgba(100,255,100,0.8);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   padding: 2px 0;
 }
-.go-mission-xp {
-  font-size: 10px;
-  opacity: 0.6;
-  margin-left: 6px;
+.go-ladder-mission {
+  color: rgba(100,255,100,0.8);
 }
-.go-bonus-unlock {
-  text-align: center;
-  padding: 6px 0;
-}
-.go-bonus-text {
-  font-family: var(--font-display, 'Rajdhani', sans-serif);
-  font-size: 13px;
-  color: #ffcc00;
-  letter-spacing: 0.1em;
-  animation: iconBreathe 2s ease-in-out infinite;
+.go-ladder-reward {
+  color: #4488ff;
+  font-weight: bold;
 }

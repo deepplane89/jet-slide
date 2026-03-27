@@ -61,9 +61,15 @@
       <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
       <div id="skin-viewer-dots" class="skin-viewer-dots"></div>
       <div id="skin-viewer-action" class="skin-viewer-action"></div>
-      <div class="title-coin-display">
-        <span class="hud-coin-icon">⬡</span>
-        <span id="title-coin-count">0</span>
+      <div class="title-currency-row">
+        <div class="title-coin-display">
+          <span class="hud-coin-icon">⬡</span>
+          <span id="title-coin-count">0</span>
+        </div>
+        <div class="title-fuelcell-display">
+          <span class="fuelcell-icon">⚡</span>
+          <span id="title-fuelcell-count">0</span>
+        </div>
       </div>
       <div class="title-level-bar">
         <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
@@ -161,19 +167,16 @@
       <div class="go-levelup-text">LEVEL 2</div>
       <div class="go-levelup-unlock hidden"></div>
     </div>
-    <!-- Missions completed this run -->
-    <div class="go-missions-section go-anim hidden" id="go-missions-section" style="--d:4.2">
-      <div id="go-missions-list"></div>
-    </div>
-    <div class="go-bonus-unlock go-anim hidden" id="go-bonus-unlock" style="--d:4.5">
-      <span class="go-bonus-text"></span>
+    <!-- Ladder progress this run -->
+    <div class="go-ladder-section go-anim hidden" id="go-ladder-wrap" style="--d:4.2">
+      <div id="go-ladder-rewards"></div>
     </div>
     <!-- Save Me button -->
     <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:5">
       <button id="saveme-btn" class="btn-space btn-saveme">
-        <span class="saveme-icon">❤️</span>
+        <span class="saveme-icon">⚡</span>
         <span class="saveme-text">SAVE ME</span>
-        <span class="saveme-cost" id="saveme-cost">⚡ 200</span>
+        <span class="saveme-cost" id="saveme-cost">⚡ 500</span>
       </button>
     </div>
     <div class="score-submit go-anim" id="score-submit" style="--d:5.5">
@@ -209,11 +212,11 @@
 <!-- ── MISSIONS OVERLAY ─────────────────────────────── -->
 <div id="missions-overlay" class="overlay hidden">
   <div class="missions-content">
-    <h2 class="missions-title">MISSIONS</h2>
-    <div class="missions-active" id="missions-active-list"></div>
-    <div class="missions-bonuses-header">EARNED BONUSES</div>
-    <div class="missions-bonuses" id="missions-bonuses-list"></div>
-    <div class="missions-sets-info" id="missions-sets-info"></div>
+    <div class="missions-header">
+      <h2 class="missions-title">MISSIONS</h2>
+      <div class="missions-fuel"><span class="fuelcell-icon">⚡</span> <span id="missions-fuel-count">0</span></div>
+    </div>
+    <div class="missions-ladder" id="missions-ladder"></div>
     <button class="btn-space btn-exit missions-close-btn" onclick="closeMissions()">CLOSE</button>
   </div>
 </div>
