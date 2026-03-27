@@ -78,6 +78,7 @@
     <div class="title-mode-buttons">
       <button id="start-btn" class="btn-mode btn-campaign">▶ CAMPAIGN</button>
       <button id="death-run-btn" class="btn-mode btn-deathrun">▶ DEATH RUN</button>
+      <button id="missions-btn" class="btn-mode btn-missions" onclick="openMissions()">MISSIONS</button>
       <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">▶ SHOP</button>
     </div>
 
@@ -160,19 +161,26 @@
       <div class="go-levelup-text">LEVEL 2</div>
       <div class="go-levelup-unlock hidden"></div>
     </div>
+    <!-- Missions completed this run -->
+    <div class="go-missions-section go-anim hidden" id="go-missions-section" style="--d:4.2">
+      <div id="go-missions-list"></div>
+    </div>
+    <div class="go-bonus-unlock go-anim hidden" id="go-bonus-unlock" style="--d:4.5">
+      <span class="go-bonus-text"></span>
+    </div>
     <!-- Save Me button -->
-    <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:4">
+    <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:5">
       <button id="saveme-btn" class="btn-space btn-saveme">
         <span class="saveme-icon">❤️</span>
         <span class="saveme-text">SAVE ME</span>
         <span class="saveme-cost" id="saveme-cost">⚡ 200</span>
       </button>
     </div>
-    <div class="score-submit go-anim" id="score-submit" style="--d:5">
+    <div class="score-submit go-anim" id="score-submit" style="--d:5.5">
       <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
       <button id="submit-confirm-btn" class="btn-space btn-submit-go">→</button>
     </div>
-    <div class="go-actions go-anim" style="--d:6">
+    <div class="go-actions go-anim" style="--d:6.5">
       <button id="restart-btn" class="btn-space btn-retry">TRY AGAIN</button>
       <button id="gameover-exit-btn" class="btn-space btn-exit">EXIT</button>
     </div>
@@ -186,15 +194,8 @@
       <h2 class="shop-title">SHOP</h2>
       <div class="shop-coins"><span class="hud-coin-icon">⬡</span> <span id="shop-coin-count">0</span></div>
     </div>
-    <div class="shop-tabs">
-      <button class="shop-tab active" data-tab="powerups">POWERUPS</button>
-      <button class="shop-tab" data-tab="stats">STATS</button>
-    </div>
     <div class="shop-tab-content" id="shop-tab-powerups">
       <div class="shop-cards" id="shop-powerup-cards"></div>
-    </div>
-    <div class="shop-tab-content hidden" id="shop-tab-stats">
-      <div class="shop-stat-list" id="shop-stat-cards"></div>
     </div>
     <!-- Detail view (hidden by default) -->
     <div class="shop-detail hidden" id="shop-detail">
@@ -204,6 +205,21 @@
     <button class="btn-space btn-exit shop-close-btn" onclick="closeShop()">CLOSE</button>
   </div>
 </div>
+
+<!-- ── MISSIONS OVERLAY ─────────────────────────────── -->
+<div id="missions-overlay" class="overlay hidden">
+  <div class="missions-content">
+    <h2 class="missions-title">MISSIONS</h2>
+    <div class="missions-active" id="missions-active-list"></div>
+    <div class="missions-bonuses-header">EARNED BONUSES</div>
+    <div class="missions-bonuses" id="missions-bonuses-list"></div>
+    <div class="missions-sets-info" id="missions-sets-info"></div>
+    <button class="btn-space btn-exit missions-close-btn" onclick="closeMissions()">CLOSE</button>
+  </div>
+</div>
+
+<!-- ── IN-RUN MISSION TOAST ───────────────────────── -->
+<div id="mission-toast" class="mission-toast"></div>
 
 <!-- ── LEVEL BANNER ──────────────────────────────── -->
 <div id="level-banner" class="level-banner hidden">
