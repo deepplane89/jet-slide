@@ -1802,7 +1802,8 @@ html, body {
     "prev info next"
     ".    dots .   "
     ".    action .  "
-    ".    wallet .  ";
+    ".    wallet .  "
+    ".    level  .  ";
   grid-template-columns: 44px 1fr 44px;
   column-gap: var(--space-2);
   row-gap: var(--space-2);
@@ -1819,6 +1820,7 @@ html, body {
 .skin-viewer-dots  { grid-area: dots; }
 .skin-viewer-action { grid-area: action; }
 .title-coin-display { grid-area: wallet; }
+.title-level-bar { grid-area: level; }
 
 .skin-nav {
   width: 36px;
@@ -2040,3 +2042,144 @@ html, body {
 .admin-level-btns .level-btn:active { background: rgba(0,170,255,0.2); }
 .title-controls { display: none !important; }
 .level-chooser { display: none !important; }
+
+/* ═══════════════════════════════════════════════════
+   LEVELING SYSTEM
+   ═══════════════════════════════════════════════════ */
+
+/* Title screen level bar */
+.title-level-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 0 4px;
+  width: 100%;
+}
+.title-level-badge {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.3vw, 14px);
+  font-weight: bold;
+  color: #ffcc00;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+}
+.title-xp-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.title-xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffcc00, #ffaa00);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+.title-xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ffcc00, 0 0 12px #ffcc00;
+  opacity: 0.8;
+}
+.title-xp-bar-glow {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255,204,0,0.3), transparent);
+  animation: xpBarShimmer 2.5s ease-in-out infinite;
+}
+@keyframes xpBarShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* Death screen XP section */
+.go-xp-section {
+  width: 100%;
+  max-width: 260px;
+  margin: 6px auto 4px;
+}
+.go-xp-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: clamp(10px, 1.2vw, 13px);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.go-xp-header #go-xp-earned {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.go-xp-header #go-xp-level {
+  color: rgba(255,255,255,0.6);
+}
+.go-xp-bar-wrap {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.go-xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffcc00, #ffaa00);
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+}
+
+/* Level up celebration */
+.go-levelup {
+  text-align: center;
+  margin: 6px 0;
+}
+.go-levelup-text {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: bold;
+  color: #ffcc00;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.6), 0 0 30px rgba(255, 204, 0, 0.3);
+  animation: levelUpPulse 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes levelUpPulse {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.go-levelup-unlock {
+  font-family: var(--font-display);
+  font-size: clamp(10px, 1.2vw, 13px);
+  color: #44ff88;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  animation: unlockSlideIn 0.5s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes unlockSlideIn {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Skin viewer level lock styling */
+.skin-level-lock {
+  font-family: var(--font-display);
+  font-size: clamp(10px, 1.1vw, 12px);
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.15em;
+}
+.skin-level-lock .lock-level {
+  color: #ffcc00;
+  font-weight: bold;
+}

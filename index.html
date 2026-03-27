@@ -65,6 +65,13 @@
         <span class="hud-coin-icon">⬡</span>
         <span id="title-coin-count">0</span>
       </div>
+      <div class="title-level-bar">
+        <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
+        <div class="title-xp-bar-wrap">
+          <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
+          <div class="title-xp-bar-glow" id="title-xp-glow"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Mode buttons -->
@@ -142,6 +149,20 @@
         <span class="go-coin-label">TOTAL</span>
         <span class="go-coin-val go-coin-total-val" id="go-coins-total">0</span>
       </div>
+    </div>
+    <!-- XP & Level -->
+    <div class="go-xp-section go-anim" style="--d:3.5">
+      <div class="go-xp-header">
+        <span id="go-xp-earned">+0 XP</span>
+        <span id="go-xp-level">Level 1</span>
+      </div>
+      <div class="go-xp-bar-wrap">
+        <div class="go-xp-bar-fill" id="go-xp-fill-end" style="width: 0%"></div>
+      </div>
+    </div>
+    <div class="go-levelup go-anim hidden" id="go-levelup-wrap" style="--d:3.8">
+      <div class="go-levelup-text">LEVEL 2</div>
+      <div class="go-levelup-unlock hidden"></div>
     </div>
     <!-- Save Me button -->
     <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:4">
