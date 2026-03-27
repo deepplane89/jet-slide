@@ -814,17 +814,18 @@ html, body {
   z-index: 110;
   pointer-events: auto;
   font-size: 22px;
-  color: rgba(255,255,255,0.5);
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
   width: 42px; height: 42px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
   -webkit-tap-highlight-color: transparent;
+  opacity: 0.5;
 }
-.settings-btn:hover, .settings-btn:active { color: #00eeff; border-color: rgba(0,238,255,0.3); }
+.settings-btn:hover, .settings-btn:active { color: #00eeff; border-color: rgba(0,238,255,0.3); opacity: 1; }
 
 /* ── SETTINGS OVERLAY ─────────────────────────── */
 .settings-overlay {
@@ -2195,26 +2196,28 @@ html, body {
 .lb-icon-btn {
   position: fixed;
   top: 16px;
-  right: 64px; /* settings gear is at right:16px, width 42px — offset to its left */
+  right: 64px;
   z-index: 110;
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
   width: 42px;
   height: 42px;
   font-size: 20px;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
+  opacity: 0.5;
 }
 .lb-icon-btn:hover, .lb-icon-btn:active {
   color: #ffcc00;
   border-color: rgba(255,204,0,0.4);
+  opacity: 1;
 }
 
 /* Leaderboard overlay */
