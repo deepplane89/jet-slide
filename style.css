@@ -2132,13 +2132,36 @@ html, body {
   height: 5px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 .go-xp-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #ffcc00, #ffaa00);
   border-radius: 3px;
   box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+  position: relative;
+}
+/* Comet tail: bright glow on leading edge while filling */
+.go-xp-bar-fill.xp-comet::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: -3px;
+  width: 18px;
+  height: calc(100% + 6px);
+  background: radial-gradient(ellipse at right center, rgba(255,255,255,0.95), rgba(255,240,150,0.6) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+/* Whole bar flash on level-up */
+.go-xp-bar-wrap.xp-flash {
+  animation: xpBarFlash 0.4s ease-out;
+}
+@keyframes xpBarFlash {
+  0% { box-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,204,0,0.6); filter: brightness(2); }
+  100% { box-shadow: none; filter: brightness(1); }
 }
 
 /* Level up celebration */
