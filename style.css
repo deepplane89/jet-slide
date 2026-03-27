@@ -2869,6 +2869,106 @@ html, body {
   50% { opacity: 0.85; box-shadow: inset 4px 0 20px -4px var(--reward-color), 0 0 16px -4px var(--reward-color); }
 }
 
+/* Reward states — claimable (tap to collect) */
+.ladder-rung.reward.claimable {
+  border-left-color: var(--reward-color);
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, transparent 70%);
+  box-shadow: inset 4px 0 20px -4px var(--reward-color), 0 0 18px -4px var(--reward-color);
+  color: var(--reward-color);
+  cursor: pointer;
+  animation: claimPulse 1.5s ease-in-out infinite;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+.ladder-rung.reward.claimable:active {
+  transform: scale(0.96);
+  filter: brightness(1.3);
+}
+@keyframes claimPulse {
+  0%, 100% { box-shadow: inset 4px 0 16px -4px var(--reward-color), 0 0 12px -4px var(--reward-color); }
+  50% { box-shadow: inset 4px 0 24px -4px var(--reward-color), 0 0 24px -2px var(--reward-color); }
+}
+.claim-tap {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+  margin-top: 3px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Reward particle */
+.reward-particle {
+  position: fixed;
+  z-index: 9999;
+  font-size: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1);
+  will-change: left, top, opacity, transform;
+}
+
+/* Counter bump on receive */
+.counter-bump {
+  animation: cBump 0.3s ease;
+}
+@keyframes cBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); color: #fff; }
+  100% { transform: scale(1); }
+}
+
+/* Notification dot on buttons */
+.has-dot {
+  position: relative;
+}
+.has-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  background: #ff4444;
+  border-radius: 50%;
+  border: 2px solid rgba(3,7,15,0.9);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Shop NEW badge */
+.shop-new-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ff4444;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+.shop-card.new-unlock {
+  position: relative;
+  overflow: visible;
+  border-color: #44ff88 !important;
+  box-shadow: 0 0 12px -2px rgba(68,255,136,0.3);
+}
+
+/* Death screen reward hint */
+.go-ladder-hint {
+  color: #ffcc00;
+  font-size: 11px;
+  margin-top: 6px;
+  opacity: 0.8;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
 .missions-close-btn {
   align-self: center;
   margin-top: 6px;
