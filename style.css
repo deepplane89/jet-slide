@@ -468,6 +468,91 @@ html, body {
   color: rgba(255,255,255,0.55);
 }
 
+/* Coin breakdown on game over */
+.go-coin-breakdown {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 10px;
+  font-family: var(--font-display);
+  font-size: clamp(10px, 1.2vw, 13px);
+  letter-spacing: 0.1em;
+}
+.go-coin-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  color: rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.go-coin-row .go-coin-label {
+  opacity: 0.7;
+}
+.go-coin-row .go-coin-val {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.go-coin-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0 2px;
+  margin-top: 2px;
+  border-top: 1px solid rgba(255,204,0,0.3);
+}
+.go-coin-total .go-coin-label {
+  color: rgba(255,255,255,0.8);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.go-coin-total-val {
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 0 0 8px rgba(255,204,0,0.5);
+}
+
+/* Save Me button */
+.go-saveme {
+  margin: 8px 0;
+}
+.btn-saveme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgba(255,50,50,0.25), rgba(255,100,50,0.15));
+  border: 1.5px solid rgba(255,80,80,0.6);
+  border-radius: 8px;
+  color: #ff6666;
+  font-family: var(--font-display);
+  font-size: clamp(12px, 1.4vw, 15px);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.btn-saveme:hover, .btn-saveme:active {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255,80,80,0.3);
+  border-color: rgba(255,80,80,0.9);
+}
+.btn-saveme:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-saveme .saveme-icon {
+  font-size: 1.2em;
+}
+.btn-saveme .saveme-cost {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
 /* Game over action buttons row */
 .go-actions {
   display: flex;

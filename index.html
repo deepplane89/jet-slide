@@ -124,14 +124,38 @@
       <span class="go-best-label">BEST</span>
       <span class="go-best-val" id="go-best">0</span>
     </div>
-    <div class="go-sub go-anim" style="--d:3">
-      <span id="go-coins">0</span> coins · <span id="go-coin-mult">1.00×</span> bonus
+    <!-- Coin breakdown -->
+    <div class="go-coin-breakdown go-anim" style="--d:3">
+      <div class="go-coin-row">
+        <span class="go-coin-label">⚡ Coins collected</span>
+        <span class="go-coin-val" id="go-coins-pickup">0</span>
+      </div>
+      <div class="go-coin-row">
+        <span class="go-coin-label">🏁 Distance bonus</span>
+        <span class="go-coin-val" id="go-coins-distance">0</span>
+      </div>
+      <div class="go-coin-row go-coin-row-dr hidden" id="go-dr-tier-row">
+        <span class="go-coin-label">🚀 Speed tier bonus</span>
+        <span class="go-coin-val" id="go-coins-tier">0</span>
+      </div>
+      <div class="go-coin-total">
+        <span class="go-coin-label">TOTAL</span>
+        <span class="go-coin-val go-coin-total-val" id="go-coins-total">0</span>
+      </div>
     </div>
-    <div class="score-submit go-anim" id="score-submit" style="--d:4">
+    <!-- Save Me button -->
+    <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:4">
+      <button id="saveme-btn" class="btn-space btn-saveme">
+        <span class="saveme-icon">❤️</span>
+        <span class="saveme-text">SAVE ME</span>
+        <span class="saveme-cost" id="saveme-cost">⚡ 200</span>
+      </button>
+    </div>
+    <div class="score-submit go-anim" id="score-submit" style="--d:5">
       <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
       <button id="submit-confirm-btn" class="btn-space btn-submit-go">→</button>
     </div>
-    <div class="go-actions go-anim" style="--d:5">
+    <div class="go-actions go-anim" style="--d:6">
       <button id="restart-btn" class="btn-space btn-retry">TRY AGAIN</button>
       <button id="gameover-exit-btn" class="btn-space btn-exit">EXIT</button>
     </div>
