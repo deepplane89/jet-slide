@@ -2793,15 +2793,21 @@ html, body {
   transition: all 0.2s ease;
 }
 
-/* Mission states */
+/* Mission states — completed (compact) */
 .ladder-rung.mission.completed {
-  color: rgba(255,255,255,0.5);
-  border-left-color: rgba(100,255,100,0.4);
+  color: rgba(255,255,255,0.35);
+  border-left-color: rgba(100,255,100,0.25);
+  padding: 3px 12px;
+  font-size: 10px;
+  margin-bottom: 1px;
+  opacity: 0.6;
 }
 .ladder-rung.mission.completed::before {
   content: '\2714  ';
-  color: #66ff88;
+  color: rgba(100,255,100,0.5);
 }
+
+/* Mission states — current (active) */
 .ladder-rung.mission.current {
   color: rgba(255,255,255,0.95);
   background: rgba(255,255,255,0.04);
@@ -2812,33 +2818,55 @@ html, body {
   content: '\25B8  ';
   color: #00eeff;
 }
+
+/* Mission states — locked (future, visually muted) */
 .ladder-rung.mission.locked {
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.15);
+  border-left-color: rgba(255,255,255,0.04);
+  opacity: 0.45;
 }
 
-/* Reward states */
+/* Reward states — base */
 .ladder-rung.reward {
-  padding: 10px 12px;
-  font-weight: bold;
+  padding: 10px 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  position: relative;
 }
+
+/* Reward states — earned (compact like completed missions) */
 .ladder-rung.reward.earned {
   border-left-color: var(--reward-color);
-  box-shadow: inset 4px 0 12px -4px var(--reward-color);
-  color: rgba(255,255,255,0.9);
+  box-shadow: inset 4px 0 10px -4px var(--reward-color);
+  color: rgba(255,255,255,0.5);
+  padding: 4px 14px;
+  font-size: 10px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  opacity: 0.6;
 }
+
+/* Reward states — next (the one you're about to earn) */
 .ladder-rung.reward.next {
   border-left-color: var(--reward-color);
-  opacity: 0.5;
-  animation: rewardPulse 2s ease-in-out infinite;
+  background: linear-gradient(90deg, rgba(var(--reward-r,68), var(--reward-g,136), var(--reward-b,255), 0.08) 0%, transparent 60%);
+  box-shadow: inset 4px 0 16px -4px var(--reward-color), 0 0 12px -4px var(--reward-color);
+  color: var(--reward-color);
+  animation: rewardPulse 2.5s ease-in-out infinite;
 }
+
+/* Reward states — locked (future, very dim) */
 .ladder-rung.reward.locked {
-  opacity: 0.2;
-  border-left-color: rgba(255,255,255,0.08);
+  opacity: 0.18;
+  border-left-color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.25);
 }
 
 @keyframes rewardPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.6; }
+  0%, 100% { opacity: 0.55; box-shadow: inset 4px 0 12px -4px var(--reward-color); }
+  50% { opacity: 0.85; box-shadow: inset 4px 0 20px -4px var(--reward-color), 0 0 16px -4px var(--reward-color); }
 }
 
 .missions-close-btn {
