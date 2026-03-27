@@ -81,16 +81,7 @@
       <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">▶ SHOP</button>
     </div>
 
-    <!-- Leaderboard icon button -->
-    <button class="lb-icon-btn" id="lb-icon-btn" onclick="document.getElementById('lb-overlay').classList.toggle('hidden')">🏆</button>
-    <!-- Leaderboard overlay -->
-    <div class="lb-overlay hidden" id="lb-overlay">
-      <div class="lb-overlay-header">
-        <span>TOP PILOTS</span>
-        <button class="lb-overlay-close" onclick="document.getElementById('lb-overlay').classList.add('hidden')">✕</button>
-      </div>
-      <div class="leaderboard-list" id="leaderboard-list"></div>
-    </div>
+
 
     <!-- Admin panel (triple-tap title to show) -->
     <div id="admin-panel" class="admin-panel hidden">
@@ -235,6 +226,16 @@
   <!-- Active power-up tray -->
   <div id="powerup-tray" class="powerup-tray"></div>
 
+</div>
+
+<!-- Leaderboard trophy (title screen, top-right next to settings) -->
+<button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()">🏆</button>
+<div id="lb-overlay" class="lb-overlay hidden">
+  <div class="lb-overlay-header">
+    <span>TOP PILOTS</span>
+    <button class="lb-overlay-close" onclick="toggleLeaderboard()">✕</button>
+  </div>
+  <div class="leaderboard-list" id="leaderboard-list"></div>
 </div>
 
 <!-- Settings gear (title screen, top-right) -->
