@@ -3425,3 +3425,45 @@ html, body {
   letter-spacing: 0.05em;
 }
 .fps-overlay.hidden { display: none; }
+
+/* ── Universal button press-in effect ── */
+.btn-mode,
+.btn-space,
+.skin-nav,
+.skin-use-btn,
+.settings-btn,
+.missions-icon-btn,
+.lb-icon-btn,
+.mute-toggle,
+.shop-back-btn,
+.shop-close-btn,
+.missions-close-btn,
+.pause-gear,
+.lb-overlay-close,
+.hs-btn,
+.btn-saveme,
+.level-btn,
+.perf-toggle,
+.ladder-rung.reward.claimable {
+  transition: transform 0.08s ease;
+}
+.btn-mode:active,
+.btn-space:active,
+.skin-nav:active,
+.skin-use-btn:active,
+.settings-btn:active,
+.missions-icon-btn:active,
+.lb-icon-btn:active,
+.mute-toggle:active,
+.shop-back-btn:active,
+.shop-close-btn:active,
+.missions-close-btn:active,
+.pause-gear:active,
+.lb-overlay-close:active,
+.hs-btn:active,
+.btn-saveme:active,
+.level-btn:active,
+.perf-toggle:active,
+.ladder-rung.reward.claimable:active {
+  transform: scale(0.93);
+}
