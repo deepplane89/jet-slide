@@ -100,6 +100,12 @@
         <button class="level-btn" data-level="4">L5</button>
       </div>
       <div class="perf-toggle-wrap">
+        <span class="perf-label">FPS COUNTER</span>
+        <button id="fps-toggle" class="perf-toggle" aria-label="Toggle FPS counter" aria-pressed="false">
+          <span class="perf-knob"></span>
+        </button>
+      </div>
+      <div class="perf-toggle-wrap">
         <span class="perf-label">PERF MODE</span>
         <button id="perf-toggle" class="perf-toggle" aria-label="Toggle performance mode" aria-pressed="false">
           <span class="perf-knob"></span>
@@ -222,6 +228,7 @@
 </div>
 
 <!-- ── HUD ──────────────────────────────────────── -->
+<div id="fps-overlay" class="fps-overlay hidden">0 FPS</div>
 <div id="hud" class="hud hidden">
   <div class="hud-left">
     <div class="hud-label">SCORE</div>
