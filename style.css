@@ -1799,8 +1799,7 @@ html, body {
   grid-template-areas:
     "prev ship   next"
     ".    info   .   "
-    ".    action  .  "
-    ".    level   .  ";
+    ".    action  .  ";
   grid-template-columns: 44px 1fr 44px;
   column-gap: var(--space-2);
   row-gap: 2px;
@@ -1814,8 +1813,6 @@ html, body {
 #title-ship-canvas {
   grid-area: ship;
   display: block;
-  width: 120px;
-  height: 56px;
   border-radius: 8px;
   pointer-events: none;
 }
