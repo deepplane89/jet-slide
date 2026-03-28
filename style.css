@@ -3340,3 +3340,32 @@ html, body {
 .skin-use-btn:active {
   background: rgba(255,255,255,0.18);
 }
+
+/* Missions icon button (top-right, next to trophy + settings) */
+.missions-icon-btn {
+  position: fixed;
+  top: 16px;
+  right: 112px;
+  z-index: 110;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  color: rgba(180,255,180,0.6);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+  opacity: 0.5;
+}
+.missions-icon-btn:hover, .missions-icon-btn:active {
+  color: #88ff88;
+  border-color: rgba(100,255,100,0.4);
+  opacity: 1;
+}
