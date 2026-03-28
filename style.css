@@ -1373,8 +1373,8 @@ html, body {
     line-height: 0.9;
   }
   #title-ship-canvas {
-    width: 110px !important;
-    height: 110px !important;
+    width: 56px !important;
+    height: 56px !important;
   }
   .btn-space {
     padding: 10px 36px;
