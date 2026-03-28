@@ -1813,6 +1813,8 @@ html, body {
 #title-ship-canvas {
   grid-area: ship;
   display: block;
+  width: 120px;
+  height: 56px;
   border-radius: 8px;
   pointer-events: none;
 }
