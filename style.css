@@ -3355,27 +3355,32 @@ html, body {
   top: 16px;
   right: 112px;
   z-index: 110;
-  background: rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,20,30,0.4);
+  border: 1px solid rgba(0,200,255,0.25);
   border-radius: 50%;
   width: 42px;
   height: 42px;
   font-size: 20px;
-  color: rgba(180,255,180,0.6);
+  color: rgba(0,220,255,0.8);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
-  opacity: 0.5;
+  box-shadow: 0 0 8px rgba(0,200,255,0.2), inset 0 0 6px rgba(0,200,255,0.1);
+  animation: missionGlow 3s ease-in-out infinite;
+}
+@keyframes missionGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,200,255,0.2), inset 0 0 6px rgba(0,200,255,0.1); }
+  50%      { box-shadow: 0 0 14px rgba(0,200,255,0.4), inset 0 0 8px rgba(0,200,255,0.15); }
 }
 .missions-icon-btn:hover, .missions-icon-btn:active {
-  color: #88ff88;
-  border-color: rgba(100,255,100,0.4);
-  opacity: 1;
+  color: #00eeff;
+  border-color: rgba(0,238,255,0.5);
+  box-shadow: 0 0 18px rgba(0,220,255,0.5), inset 0 0 10px rgba(0,220,255,0.2);
 }
 
 /* Game over: single coin total line */
