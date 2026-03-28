@@ -81,8 +81,8 @@
 
     <!-- Mode buttons -->
     <div class="title-mode-buttons">
-      <button id="start-btn" class="btn-mode btn-campaign">▶ CAMPAIGN</button>
-      <button id="death-run-btn" class="btn-mode btn-deathrun">▶ DEATH RUN</button>
+      <button id="start-btn" class="btn-mode btn-campaign"><span class="btn-play"></span>CAMPAIGN</button>
+      <button id="death-run-btn" class="btn-mode btn-deathrun"><span class="btn-play"></span>DEATH RUN</button>
 
       <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">SHOP</button>
     </div>
@@ -248,7 +248,7 @@
 </div>
 
 <!-- Missions icon (title screen, top-right) -->
-<button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()">◎</button>
+<button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></button>
 <!-- Leaderboard trophy (title screen, top-right next to settings) -->
 <button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()">🏆</button>
 <div id="lb-overlay" class="lb-overlay hidden">

@@ -1830,9 +1830,10 @@ html, body {
   top: 14px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(220px, 50vw);
+  width: min(220px, 50vw) !important;
   z-index: 120;
   margin-top: 0;
+  padding: 0 !important;
 }
 
 .skin-nav {
@@ -2013,6 +2014,15 @@ html, body {
 /* ── TITLE SCREEN REDESIGN ────────────────────────── */
 .title-mode-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; margin: 18px 0 14px; width: 100%; max-width: 320px; }
 .btn-mode { display: block; width: 100%; max-width: 300px; padding: 14px 0; font-family: 'Silkscreen', monospace; font-size: 16px; letter-spacing: 3px; background: transparent; color: #eee; border: 2px solid #555; border-radius: 6px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; text-align: center; -webkit-tap-highlight-color: transparent; }
+.btn-play {
+  display: inline-block;
+  width: 0; height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid currentColor;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 .btn-campaign { border-color: #00eeff; color: #00eeff; }
 .btn-campaign:active { background: rgba(0,238,255,0.12); }
 .btn-deathrun { border-color: #ff1a8c; color: #ff1a8c; }
@@ -2730,7 +2740,7 @@ html, body {
 }
 .title-currency-bar {
   position: absolute;
-  top: max(env(safe-area-inset-top, 12px), 12px);
+  top: max(calc(env(safe-area-inset-top, 12px) + 28px), 40px);
   left: max(env(safe-area-inset-left, 12px), 12px);
   display: flex;
   gap: 14px;
