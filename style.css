@@ -3316,3 +3316,27 @@ html, body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   border: 1px solid rgba(150, 100, 255, 0.4);
 }
+
+/* Inline skin check + USE button */
+.skin-check {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8em;
+  margin-left: 4px;
+}
+.skin-use-btn {
+  font-family: 'Silkscreen', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+}
+.skin-use-btn:active {
+  background: rgba(255,255,255,0.18);
+}
