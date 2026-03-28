@@ -1808,6 +1808,7 @@ html, body {
   width: 100%;
   max-width: 340px;
   padding: var(--space-3) 0;
+  margin-left: -16px;
 }
 
 #title-ship-canvas {
