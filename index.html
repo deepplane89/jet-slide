@@ -48,6 +48,13 @@
 
 <!-- ── TITLE SCREEN ─────────────────────────────── -->
 <div id="title-screen" class="overlay">
+  <div class="title-level-bar title-level-top">
+    <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
+    <div class="title-xp-bar-wrap">
+      <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
+      <div class="title-xp-bar-glow" id="title-xp-glow"></div>
+    </div>
+  </div>
   <!-- Currency: fixed top-left -->
   <div class="title-currency-bar">
     <div class="title-coin-display">
@@ -70,13 +77,6 @@
       </div>
       <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
       <div id="skin-viewer-action" class="skin-viewer-action"></div>
-      <div class="title-level-bar">
-        <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
-        <div class="title-xp-bar-wrap">
-          <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
-          <div class="title-xp-bar-glow" id="title-xp-glow"></div>
-        </div>
-      </div>
     </div>
 
     <!-- Mode buttons -->
@@ -84,7 +84,7 @@
       <button id="start-btn" class="btn-mode btn-campaign">▶ CAMPAIGN</button>
       <button id="death-run-btn" class="btn-mode btn-deathrun">▶ DEATH RUN</button>
 
-      <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">▶ SHOP</button>
+      <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">SHOP</button>
     </div>
 
 

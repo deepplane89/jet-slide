@@ -1825,6 +1825,15 @@ html, body {
 .skin-viewer-action { grid-area: action; }
 
 .title-level-bar { grid-area: level; }
+.title-level-top {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(220px, 50vw);
+  z-index: 120;
+  margin-top: 0;
+}
 
 .skin-nav {
   width: 36px;
@@ -3353,9 +3362,9 @@ html, body {
   background: rgba(0,20,30,0.4);
   border: 1px solid rgba(0,200,255,0.25);
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
   color: rgba(0,220,255,0.8);
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
