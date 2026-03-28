@@ -133,69 +133,49 @@
       <span class="go-best-label">BEST</span>
       <span class="go-best-val" id="go-best">0</span>
     </div>
-    <!-- Coin breakdown -->
-    <div class="go-coin-breakdown go-anim" style="--d:3">
-      <div class="go-coin-row">
-        <span class="go-coin-label">⚡ Coins collected</span>
-        <span class="go-coin-val" id="go-coins-pickup">0</span>
-      </div>
-      <div class="go-coin-row">
-        <span class="go-coin-label">🏁 Distance bonus</span>
-        <span class="go-coin-val" id="go-coins-distance">0</span>
-      </div>
-      <div class="go-coin-row go-coin-row-dr hidden" id="go-dr-tier-row">
-        <span class="go-coin-label">🚀 Speed tier bonus</span>
-        <span class="go-coin-val" id="go-coins-tier">0</span>
-      </div>
-      <div class="go-coin-total">
-        <span class="go-coin-label">TOTAL</span>
-        <span class="go-coin-val go-coin-total-val" id="go-coins-total">0</span>
-      </div>
+    <!-- Coins earned (single line) -->
+    <div class="go-coins-line go-anim" style="--d:2.5">
+      <span class="hud-coin-icon">⬡</span> <span class="go-coins-total-val" id="go-coins-total">+0</span>
     </div>
-    <!-- XP & Level -->
-    <div class="go-xp-section go-anim" style="--d:3.5">
-      <div class="go-xp-header">
-        <span id="go-xp-earned">+0 XP</span>
-        <span id="go-xp-level">Level 1</span>
+    <!-- Level bar -->
+    <div class="go-level-section go-anim" style="--d:3">
+      <div class="go-level-header">
+        <span id="go-level-label">LV 1</span>
       </div>
       <div class="go-xp-bar-wrap">
         <div class="go-xp-bar-fill" id="go-xp-fill-end" style="width: 0%"></div>
       </div>
     </div>
-    <div class="go-levelup go-anim hidden" id="go-levelup-wrap" style="--d:3.8">
+    <div class="go-levelup go-anim hidden" id="go-levelup-wrap" style="--d:3.3">
       <div class="go-levelup-text">LEVEL 2</div>
       <div class="go-levelup-unlock hidden"></div>
     </div>
-    <!-- Ship Handling Upgrade Bar -->
-    <div class="go-handling-section go-anim" style="--d:4.0">
+    <!-- Ship Handling Bar -->
+    <div class="go-handling-section go-anim" style="--d:3.5">
       <div class="go-handling-header">
-        <span id="go-handling-label">SHIP HANDLING</span>
+        <span id="go-handling-label">HANDLING</span>
         <span id="go-handling-tier"></span>
       </div>
       <div class="go-handling-bar-wrap">
         <div class="go-handling-bar-fill" id="go-handling-fill" style="width: 0%"></div>
       </div>
     </div>
-    <div class="go-handling-upgrade go-anim hidden" id="go-handling-upgrade-wrap" style="--d:4.3">
+    <div class="go-handling-upgrade go-anim hidden" id="go-handling-upgrade-wrap" style="--d:3.8">
       <div class="go-handling-upgrade-text"></div>
     </div>
-    <!-- Ladder progress this run -->
-    <div class="go-ladder-section go-anim hidden" id="go-ladder-wrap" style="--d:4.2">
-      <div id="go-ladder-rewards"></div>
-    </div>
     <!-- Repair Ship button -->
-    <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:5">
+    <div class="go-saveme go-anim" id="go-saveme-wrap" style="--d:4">
       <button id="saveme-btn" class="btn-space btn-saveme">
         <span class="saveme-icon">⚡</span>
         <span class="saveme-text">REPAIR SHIP</span>
         <span class="saveme-cost" id="saveme-cost">⚡ 50</span>
       </button>
     </div>
-    <div class="score-submit go-anim" id="score-submit" style="--d:5.5">
+    <div class="score-submit go-anim" id="score-submit" style="--d:4.5">
       <input type="text" id="player-name" class="player-name-input" placeholder="YOUR NAME" maxlength="12" autocomplete="off" spellcheck="false" />
       <button id="submit-confirm-btn" class="btn-space btn-submit-go">→</button>
     </div>
-    <div class="go-actions go-anim" style="--d:6.5">
+    <div class="go-actions go-anim" style="--d:5">
       <button id="restart-btn" class="btn-space btn-retry">TRY AGAIN</button>
       <button id="gameover-exit-btn" class="btn-space btn-exit">EXIT</button>
     </div>

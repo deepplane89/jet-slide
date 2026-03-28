@@ -3381,3 +3381,28 @@ html, body {
   border-color: rgba(100,255,100,0.4);
   opacity: 1;
 }
+
+/* Game over: single coin total line */
+.go-coins-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 0.1em;
+}
+.go-level-section {
+  width: 100%;
+  max-width: 280px;
+}
+.go-level-header {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
