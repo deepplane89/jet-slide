@@ -726,8 +726,8 @@ html, body {
 /* ── COIN COUNTER (HUD) — bottom-right corner ──────────── */
 .hud-coins-wrap {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  top: max(env(safe-area-inset-top, 12px), 12px);
+  left: max(env(safe-area-inset-left, 12px), 12px);
   display: flex;
   align-items: center;
   gap: 6px;
