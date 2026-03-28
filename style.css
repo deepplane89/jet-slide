@@ -234,7 +234,6 @@ html, body {
   box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.3),
     0 2px 8px rgba(0,0,0,0.3);
-  transform: translateY(1px);
 }
 
 /* ── DEATH RUN BUTTON ──────────────────────────────────────────────────────── */
@@ -261,7 +260,6 @@ html, body {
 }
 .btn-death-run:active {
   background: rgba(255, 40, 40, 0.05);
-  transform: translateY(1px);
 }
 
 .title-sub {
@@ -532,10 +530,9 @@ html, body {
   font-weight: bold;
   letter-spacing: 0.15em;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
-.btn-saveme:hover, .btn-saveme:active {
-  transform: scale(1.03);
+.btn-saveme:hover {
   box-shadow: 0 0 12px rgba(255,80,80,0.3);
   border-color: rgba(255,80,80,0.9);
 }
@@ -640,7 +637,7 @@ html, body {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 0 30px rgba(255,45,120,0.6), 0 0 60px rgba(123,47,255,0.3);
 }
-.btn-primary:active { transform: scale(0.98); }
+.btn-primary:active { }
 
 /* ── LEVEL BANNER ─────────────────────────────────────── */
 .level-banner {
@@ -2909,7 +2906,6 @@ html, body {
   font-size: 14px;
 }
 .ladder-rung.reward.claimable:active {
-  transform: scale(0.96);
   filter: brightness(1.3);
 }
 @keyframes claimPulse {
@@ -3181,7 +3177,6 @@ html, body {
 .hs-btn:active {
   background: rgba(255,200,0,0.15);
   border-color: rgba(255,200,0,0.7);
-  transform: scale(0.96);
 }
 .hs-btn.hs-mega {
   border-color: rgba(255,120,0,0.5);
