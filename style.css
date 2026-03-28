@@ -2746,7 +2746,10 @@ html, body {
   gap: 4px;
 }
 .fuelcell-icon {
-  font-size: 14px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
 }
 
 /* Missions button on title */
