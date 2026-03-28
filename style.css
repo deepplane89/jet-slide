@@ -3347,7 +3347,7 @@ html, body {
 /* Missions icon button (top-right, next to trophy + settings) */
 .missions-icon-btn {
   position: fixed;
-  top: 16px;
+  top: 20px;
   right: 92px;
   z-index: 110;
   background: rgba(0,20,30,0.4);
