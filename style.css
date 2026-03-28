@@ -1373,8 +1373,8 @@ html, body {
     line-height: 0.9;
   }
   #title-ship-canvas {
-    width: 56px !important;
-    height: 56px !important;
+    width: 80px !important;
+    height: 38px !important;
   }
   .btn-space {
     padding: 10px 36px;
@@ -1822,8 +1822,8 @@ html, body {
 #title-ship-canvas {
   grid-area: ship;
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 56px;
   border-radius: 8px;
   pointer-events: none;
 }
