@@ -1804,12 +1804,11 @@ html, body {
 .skin-viewer {
   display: grid;
   grid-template-areas:
-    "prev ship  next"
-    "prev info  next"
-    ".    dots  .   "
-    ".    action .  "
-    ".    wallet .  "
-    ".    level  .  ";
+    "prev ship   next"
+    "prev info   next"
+    ".    action  .  "
+    ".    wallet  .  "
+    ".    level   .  ";
   grid-template-columns: 44px 1fr 44px;
   column-gap: var(--space-2);
   row-gap: var(--space-1);
@@ -1829,7 +1828,6 @@ html, body {
 .skin-nav-left  { grid-area: prev; }
 .skin-nav-right { grid-area: next; }
 .skin-viewer-info  { grid-area: info; }
-.skin-viewer-dots  { grid-area: dots; }
 .skin-viewer-action { grid-area: action; }
 .title-coin-display { grid-area: wallet; }
 .title-level-bar { grid-area: level; }
@@ -1859,52 +1857,26 @@ html, body {
 .skin-viewer-label {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(14px, 2.2vw, 18px);
   letter-spacing: 0.2em;
   color: #fff;
   text-transform: uppercase;
   cursor: default;
   user-select: none;
+  white-space: nowrap;
 }
-
-.skin-viewer-price {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: color var(--transition);
+.skin-viewer-label.skin-locked {
+  color: rgba(255,255,255,0.4);
 }
-.skin-viewer-price.owned    { color: #4caf80; }
-.skin-viewer-price.affordable { color: var(--color-gold); }
-.skin-viewer-price.expensive { color: rgba(255,255,255,0.35); }
-
-.skin-viewer-dots {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  justify-content: center;
-}
-
-.skin-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
-}
-.skin-dot.active {
-  background: #fff;
-  transform: scale(1.25);
-}
-.skin-dot.locked {
-  background: rgba(255,255,255,0.1);
-  opacity: 0.5;
+.skin-lock-tag {
+  font-size: 0.7em;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.3);
+  margin-left: 4px;
 }
 
 .skin-viewer-action {
-  min-height: 32px;
+  min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1927,13 +1899,17 @@ html, body {
 }
 .skin-action-btn.selected {
   background: transparent;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.3);
   cursor: default;
+  font-size: 16px;
+  padding: 2px 8px;
 }
 .skin-action-btn.selectable {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.10);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 3px 12px;
+  font-size: 11px;
 }
 .skin-action-btn.selectable:hover {
   background: rgba(255,255,255,0.22);
