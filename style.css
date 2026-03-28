@@ -723,16 +723,12 @@ html, body {
 
 /* ── POWER-UP TRAY ────────────────────────────────────── */
 
-/* ── COIN COUNTER (HUD) — bottom-right corner ──────────── */
-.hud-coins-wrap {
-  position: fixed;
-  top: max(env(safe-area-inset-top, 12px), 12px);
-  left: max(env(safe-area-inset-left, 12px), 12px);
+/* ── COIN COUNTER (HUD) — inline below score ──────────── */
+.hud-coins-inline {
   display: flex;
   align-items: center;
-  gap: 6px;
-  pointer-events: none;
-  z-index: 101;
+  gap: 5px;
+  margin-top: 4px;
 }
 .hud-coin-icon {
   font-size: 16px;
