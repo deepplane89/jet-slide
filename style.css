@@ -3137,7 +3137,7 @@ html, body {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-.headstart-overlay.visible { opacity: 1; pointer-events: auto; }
+.headstart-overlay.visible { opacity: 1; pointer-events: auto; z-index: 250; }
 .headstart-overlay.fading  { opacity: 0; pointer-events: none; }
 
 .hs-buttons {
