@@ -1805,7 +1805,7 @@ html, body {
   display: grid;
   grid-template-areas:
     "prev ship   next"
-    "prev info   next"
+    ".    info   .   "
     ".    action  .  "
     ".    wallet  .  "
     ".    level   .  ";
@@ -1822,6 +1822,8 @@ html, body {
 #title-ship-canvas {
   grid-area: ship;
   display: block;
+  width: 100px;
+  height: 100px;
   border-radius: 8px;
   pointer-events: none;
 }
