@@ -1372,6 +1372,10 @@ html, body {
     font-size: clamp(36px, 8vw, 64px);
     line-height: 0.9;
   }
+  #title-ship-canvas {
+    width: 110px !important;
+    height: 110px !important;
+  }
   .btn-space {
     padding: 10px 36px;
     font-size: clamp(13px, 1.5vw, 18px);
@@ -1800,14 +1804,15 @@ html, body {
 .skin-viewer {
   display: grid;
   grid-template-areas:
-    "prev info next"
-    ".    dots .   "
+    "prev ship  next"
+    "prev info  next"
+    ".    dots  .   "
     ".    action .  "
     ".    wallet .  "
     ".    level  .  ";
   grid-template-columns: 44px 1fr 44px;
   column-gap: var(--space-2);
-  row-gap: var(--space-2);
+  row-gap: var(--space-1);
   align-items: center;
   justify-items: center;
   width: 100%;
@@ -1815,6 +1820,12 @@ html, body {
   padding: var(--space-3) 0;
 }
 
+#title-ship-canvas {
+  grid-area: ship;
+  display: block;
+  border-radius: 8px;
+  pointer-events: none;
+}
 .skin-nav-left  { grid-area: prev; }
 .skin-nav-right { grid-area: next; }
 .skin-viewer-info  { grid-area: info; }
