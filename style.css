@@ -1114,7 +1114,7 @@ html, body {
 .touch-right {
   position: absolute;
   top: 0;
-  bottom: 30%;  /* leave room for joystick zone */
+  bottom: 0;
   width: 50%;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;

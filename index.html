@@ -292,10 +292,7 @@
       <label>Haptics</label>
       <button id="haptic-toggle" class="toggle-btn on">ON</button>
     </div>
-    <div class="settings-row">
-      <label>Joystick</label>
-      <button id="joystick-toggle" class="toggle-btn on">ON</button>
-    </div>
+
     <div class="settings-row">
       <label>Controls</label>
       <button id="show-tutorial-btn" class="toggle-btn">HOW TO PLAY</button>
@@ -335,7 +332,7 @@
     <div class="onboarding-steps">
       <div class="onboard-step">
         <div class="onboard-icon">◁ ▷</div>
-        <div class="onboard-text">Tap left / right to steer<br><span class="onboard-sub">or drag the joystick at the bottom</span></div>
+        <div class="onboard-text">Tap left / right to steer<br><span class="onboard-sub">swipe up to roll</span></div>
       </div>
       <div class="onboard-step">
         <div class="onboard-icon">△</div>
@@ -388,10 +385,8 @@
   <div class="touch-left" id="touch-left"></div>
   <!-- Right zone: steer right -->
   <div class="touch-right" id="touch-right"></div>
-  <!-- Floating joystick zone (lower 30% of screen) -->
-  <div class="joystick-zone" id="joystick-zone">
-    <div class="joystick-base" id="joystick-base"></div>
-    <div class="joystick-knob" id="joystick-knob"></div>
+  <!-- Joystick removed — steer zones only -->
+  <div id="joystick-zone" style="display:none">
   </div>
   <!-- Pause button -->
   <div class="touch-pause" id="touch-pause">❚❚</div>
