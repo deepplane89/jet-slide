@@ -1807,7 +1807,6 @@ html, body {
     "prev ship   next"
     ".    info   .   "
     ".    action  .  "
-    ".    wallet  .  "
     ".    level   .  ";
   grid-template-columns: 44px 1fr 44px;
   column-gap: var(--space-2);
@@ -1831,7 +1830,7 @@ html, body {
 .skin-nav-right { grid-area: next; }
 .skin-viewer-info  { grid-area: info; }
 .skin-viewer-action { grid-area: action; }
-.title-coin-display { grid-area: wallet; }
+
 .title-level-bar { grid-area: level; }
 
 .skin-nav {
@@ -2714,6 +2713,15 @@ html, body {
   gap: 16px;
   justify-content: center;
   align-items: center;
+}
+.title-currency-bar {
+  position: absolute;
+  top: max(env(safe-area-inset-top, 12px), 12px);
+  left: max(env(safe-area-inset-left, 12px), 12px);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  z-index: 10;
 }
 .title-fuelcell-display {
   font-family: var(--font-display, 'Rajdhani', sans-serif);
