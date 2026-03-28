@@ -48,15 +48,29 @@
 
 <!-- ── TITLE SCREEN ─────────────────────────────── -->
 <div id="title-screen" class="overlay">
-  <!-- Currency: fixed top-left -->
-  <div class="title-currency-bar">
-    <div class="title-coin-display">
-      <span class="hud-coin-icon">⬡</span>
-      <span id="title-coin-count">0</span>
+  <!-- Top bar: currencies | level | icons -->
+  <div class="title-top-bar">
+    <div class="title-currency-bar">
+      <div class="title-coin-display">
+        <span class="hud-coin-icon">⬡</span>
+        <span id="title-coin-count">0</span>
+      </div>
+      <div class="title-fuelcell-display">
+        <svg class="fuelcell-icon" viewBox="0 0 16 16" fill="none" stroke="#4488ff" stroke-width="1.5"><rect x="2" y="4" width="10" height="10" rx="1.5"/><rect x="5" y="2" width="4" height="2" rx="0.5" fill="#4488ff" stroke="none"/><rect x="4" y="7" width="6" height="5" rx="0.5" fill="#4488ff" stroke="none" opacity="0.5"/></svg>
+        <span id="title-fuelcell-count">0</span>
+      </div>
     </div>
-    <div class="title-fuelcell-display">
-      <svg class="fuelcell-icon" viewBox="0 0 16 16" fill="none" stroke="#4488ff" stroke-width="1.5"><rect x="2" y="4" width="10" height="10" rx="1.5"/><rect x="5" y="2" width="4" height="2" rx="0.5" fill="#4488ff" stroke="none"/><rect x="4" y="7" width="6" height="5" rx="0.5" fill="#4488ff" stroke="none" opacity="0.5"/></svg>
-      <span id="title-fuelcell-count">0</span>
+    <div class="title-level-bar">
+      <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
+      <div class="title-xp-bar-wrap">
+        <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
+        <div class="title-xp-bar-glow" id="title-xp-glow"></div>
+      </div>
+    </div>
+    <div class="title-icons-bar">
+      <button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></button>
+      <button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()">🏆</button>
+      <button id="settings-btn" class="settings-btn" aria-label="Settings">⚙</button>
     </div>
   </div>
   <div class="title-content">
@@ -70,13 +84,6 @@
       </div>
       <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
       <div id="skin-viewer-action" class="skin-viewer-action"></div>
-      <div class="title-level-bar">
-        <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
-        <div class="title-xp-bar-wrap">
-          <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
-          <div class="title-xp-bar-glow" id="title-xp-glow"></div>
-        </div>
-      </div>
     </div>
 
     <!-- Mode buttons -->
@@ -247,10 +254,7 @@
 
 </div>
 
-<!-- Missions icon (title screen, top-right) -->
-<button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></button>
-<!-- Leaderboard trophy (title screen, top-right next to settings) -->
-<button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()">🏆</button>
+<!-- Leaderboard overlay (button moved to title-top-bar) -->
 <div id="lb-overlay" class="lb-overlay hidden">
   <div class="lb-overlay-header">
     <span>TOP PILOTS</span>
@@ -259,8 +263,7 @@
   <div class="leaderboard-list" id="leaderboard-list"></div>
 </div>
 
-<!-- Settings gear (title screen, top-right) -->
-<button id="settings-btn" class="settings-btn" aria-label="Settings">⚙</button>
+<!-- Settings button moved to title-top-bar -->
 
 <!-- Settings panel (shared by title + pause) -->
 <div id="settings-overlay" class="settings-overlay hidden">

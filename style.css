@@ -1824,7 +1824,7 @@ html, body {
 .skin-viewer-info  { grid-area: info; }
 .skin-viewer-action { grid-area: action; }
 
-.title-level-bar { grid-area: level; }
+/* .title-level-bar grid-area removed — now in top bar */
 
 .skin-nav {
   width: 36px;
@@ -2043,10 +2043,11 @@ html, body {
 .title-level-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 6px;
-  padding: 0 4px;
-  width: 100%;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
 }
 .title-level-badge {
   font-family: var(--font-display);
@@ -2728,14 +2729,36 @@ html, body {
   justify-content: center;
   align-items: center;
 }
-.title-currency-bar {
-  position: absolute;
-  top: max(env(safe-area-inset-top, 16px), 16px);
-  left: max(env(safe-area-inset-left, 12px), 12px);
+/* ── Title top bar (flex row: currencies | level | icons) ── */
+.title-icons-bar {
   display: flex;
-  gap: 14px;
+  gap: 4px;
   align-items: center;
-  z-index: 10;
+  flex-shrink: 0;
+}
+.title-icons-bar .missions-icon-btn,
+.title-icons-bar .lb-icon-btn,
+.title-icons-bar .settings-btn {
+  position: relative;
+  top: auto;
+  right: auto;
+}
+.title-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: max(env(safe-area-inset-top, 12px), 12px) 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 120;
+}
+.title-currency-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
 }
 .title-fuelcell-display {
   font-family: var(--font-display, 'Rajdhani', sans-serif);
