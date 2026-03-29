@@ -3834,28 +3834,28 @@ html, body {
   100% { transform: scale(1); }
 }
 
-/* Streak popup text */
-.streak-popup {
+/* Streak claim floating text (dynamic, appended to body) */
+.streak-claim-popup {
   position: fixed;
-  pointer-events: none;
+  z-index: 9999;
+  transform: translateX(-50%) translateY(0);
   font-family: 'Permanent Marker', cursive;
   font-size: 14px;
   color: #fff;
+  text-shadow: 0 0 10px rgba(255,160,0,0.6), 0 0 20px rgba(255,100,0,0.3);
   white-space: nowrap;
-  text-shadow: 0 0 8px rgba(255,140,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
+  pointer-events: none;
   opacity: 0;
-  transform: translateX(-50%) translateY(0) scale(0.5);
-  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
-  z-index: 99999;
+  transition: opacity 0.2s ease, transform 0.6s ease;
 }
-.streak-popup.visible {
+.streak-claim-popup.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(-10px) scale(1);
+  transform: translateX(-50%) translateY(-20px);
 }
-.streak-popup.fade-out {
+.streak-claim-popup.fade {
   opacity: 0;
-  transform: translateX(-50%) translateY(-28px) scale(0.9);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(-50%) translateY(-40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* ═══════════════════════════════════════════════════════
