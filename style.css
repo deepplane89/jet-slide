@@ -3601,10 +3601,16 @@ html, body {
 .wheel-segment[data-idx="5"] { transform: rotate(240deg) skewY(30deg); }
 
 .ws-icon {
-  font-size: clamp(16px, 3vw, 24px);
+  font-size: clamp(22px, 4.5vw, 36px);
   transform: skewY(-30deg);
   display: block;
   text-shadow: 0 0 8px currentColor;
+}
+
+.ws-icon-2x {
+  font-weight: 900;
+  font-size: clamp(24px, 5vw, 40px) !important;
+  letter-spacing: -0.05em;
 }
 
 .ws-label {
