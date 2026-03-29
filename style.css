@@ -3836,25 +3836,25 @@ html, body {
 
 /* Streak popup text */
 .streak-popup {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
   font-family: 'Permanent Marker', cursive;
-  font-size: 13px;
+  font-size: 14px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 0 8px rgba(255,140,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
   opacity: 0;
   transform: translateX(-50%) translateY(0) scale(0.5);
-  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 1.4, 0.4, 1);
-  z-index: 10;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+  z-index: 99999;
 }
 .streak-popup.visible {
   opacity: 1;
-  transform: translateX(-50%) translateY(-8px) scale(1);
+  transform: translateX(-50%) translateY(-10px) scale(1);
 }
 .streak-popup.fade-out {
   opacity: 0;
-  transform: translateX(-50%) translateY(-22px) scale(0.9);
+  transform: translateX(-50%) translateY(-28px) scale(0.9);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
