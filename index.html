@@ -48,42 +48,52 @@
 
 <!-- ── TITLE SCREEN ─────────────────────────────── -->
 <div id="title-screen" class="overlay">
-  <!-- Top bar: currencies | level | icons -->
+  <!-- Top HUD — Row 1: level + icons  Row 2: currencies -->
   <div class="title-top-bar">
-    <div class="title-currency-bar">
+    <div class="title-hud-row1">
+      <div class="title-level-bar">
+        <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
+        <div class="title-xp-bar-wrap">
+          <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
+          <div class="title-xp-bar-glow" id="title-xp-glow"></div>
+        </div>
+      </div>
+      <div class="title-icons-bar">
+        <button id="streak-btn" class="streak-icon-btn" aria-label="Daily Streak" onclick="openStreak()"><img src="flame-icon.png" style="width:28px;height:28px;object-fit:contain;"><span id="streak-day-label" class="streak-day-label"></span></button>
+        <button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><img src="mission-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
+        <button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()"><img src="trophy-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
+        <button id="settings-btn" class="settings-btn" aria-label="Settings"><img src="gear-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
+      </div>
+    </div>
+    <div class="title-hud-row2">
       <div class="title-coin-display">
-        <img src="single-coin-icon.png" class="hud-coin-icon" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;">
+        <img src="single-coin-icon.png" class="hud-coin-icon" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;">
         <span id="title-coin-count">0</span>
       </div>
       <div class="title-fuelcell-display">
-        <img src="fuelcell-icon-new.png" class="fuelcell-icon" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;">
+        <img src="fuelcell-icon-new.png" class="fuelcell-icon" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;">
         <span id="title-fuelcell-count">0</span>
       </div>
     </div>
-    <div class="title-level-bar">
-      <div class="title-level-badge">LV <span id="title-level-num">1</span></div>
-      <div class="title-xp-bar-wrap">
-        <div class="title-xp-bar-fill" id="title-xp-fill" style="width: 0%"></div>
-        <div class="title-xp-bar-glow" id="title-xp-glow"></div>
-      </div>
-    </div>
-    <div class="title-icons-bar">
-      <button id="streak-btn" class="streak-icon-btn" aria-label="Daily Streak" onclick="openStreak()"><img src="flame-icon.png" style="width:28px;height:28px;object-fit:contain;"><span id="streak-badge" class="streak-badge hidden"></span></button>
-      <button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><img src="mission-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
-      <button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()"><img src="trophy-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
-      <button id="settings-btn" class="settings-btn" aria-label="Settings"><img src="gear-icon.png" style="width:28px;height:28px;object-fit:contain;"></button>
-    </div>
   </div>
+
   <div class="title-content">
     <h1 class="game-title">JET<br>HORIZON</h1>
 
-    <!-- Skin Viewer -->
-    <div id="skin-viewer" class="skin-viewer">
+    <!-- Ship showcase area — arrows flank the 3D ship -->
+    <div class="ship-showcase">
       <button id="skin-prev" class="skin-nav skin-nav-left" aria-label="Previous skin">‹</button>
+      <div class="ship-showcase-center">
+        <!-- title-ship-canvas inserted here by JS -->
+      </div>
+      <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
+    </div>
+
+    <!-- Skin name + buy action below ship -->
+    <div id="skin-viewer" class="skin-viewer">
       <div class="skin-viewer-info">
         <div id="skin-viewer-label" class="skin-viewer-label">RUNNER</div>
       </div>
-      <button id="skin-next" class="skin-nav skin-nav-right" aria-label="Next skin">›</button>
       <div id="skin-viewer-action" class="skin-viewer-action"></div>
     </div>
 
@@ -91,8 +101,7 @@
     <div class="title-mode-buttons">
       <button id="start-btn" class="btn-mode btn-campaign">CAMPAIGN</button>
       <button id="death-run-btn" class="btn-mode btn-deathrun">DEATH RUN</button>
-
-      <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()">SHOP</button>
+      <button id="shop-btn" class="btn-mode btn-shop" onclick="openShop()"><img src="shop-icon.png" style="width:22px;height:22px;object-fit:contain;vertical-align:middle;margin-right:6px;">SHOP</button>
     </div>
 
 
