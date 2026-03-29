@@ -3716,17 +3716,52 @@ html, body {
   50%      { transform: scale(1.4); opacity: 0.6; }
 }
 
-/* Streak overlay */
-#streak-overlay {
-  background: rgba(3,7,15,0.92);
-  backdrop-filter: blur(12px);
+/* Streak overlay — semi-transparent backdrop, not fullscreen takeover */
+.streak-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 510;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
 }
-.streak-content {
+.streak-overlay.hidden { display: none; }
+.streak-panel {
+  position: relative;
+  background: rgba(8,12,28,0.95);
+  border: 1px solid rgba(255,140,0,0.2);
+  border-radius: 16px;
+  padding: 24px 16px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  min-width: 320px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(255,140,0,0.08);
+  animation: streakPanelIn 0.3s ease-out;
 }
+@keyframes streakPanelIn {
+  from { opacity: 0; transform: scale(0.9) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.streak-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+.streak-close:active { color: rgba(255,255,255,0.8); }
 .streak-circles {
   display: flex;
   gap: 8px;
@@ -3823,4 +3858,3 @@ html, body {
   opacity: 1;
   transform: scale(1);
 }
-.streak-popup.hidden { display: none; }
