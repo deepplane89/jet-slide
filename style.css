@@ -2027,7 +2027,7 @@ html, body {
 .lb-collapsible .lb-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .lb-collapsible.lb-open .lb-body { max-height: 300px; }
 .lb-toggle { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
-.admin-panel { background: rgba(0,0,0,0.85); border: 1px solid #444; border-radius: 6px; padding: 12px; margin: 12px 0; text-align: center; }
+.admin-panel { background: rgba(0,0,0,0.85); border: 1px solid #444; border-radius: 6px; padding: 12px; margin: 12px 0; text-align: center; max-height: 60vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .admin-panel.hidden { display: none; }
 .admin-label { font-family: 'Silkscreen', monospace; font-size: 11px; color: #ff4444; letter-spacing: 2px; margin-bottom: 8px; }
 .admin-level-btns { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
