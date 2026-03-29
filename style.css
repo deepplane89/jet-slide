@@ -3716,52 +3716,51 @@ html, body {
   50%      { transform: scale(1.4); opacity: 0.6; }
 }
 
-/* Streak overlay — semi-transparent backdrop, not fullscreen takeover */
+/* Streak overlay — slides down from top, anchored below top bar */
 .streak-overlay {
   position: fixed;
   inset: 0;
   z-index: 510;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(4px);
+  padding-top: calc(max(env(safe-area-inset-top, 12px), 12px) + 44px);
+  background: rgba(0,0,0,0.45);
   pointer-events: auto;
 }
 .streak-overlay.hidden { display: none; }
 .streak-panel {
   position: relative;
-  background: rgba(8,12,28,0.95);
-  border: 1px solid rgba(255,140,0,0.2);
-  border-radius: 16px;
-  padding: 24px 16px 20px;
+  background: rgba(10,14,30,0.97);
+  border: 1px solid rgba(255,160,0,0.15);
+  border-radius: 14px;
+  padding: 20px 14px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  min-width: 320px;
-  max-width: 90vw;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(255,140,0,0.08);
-  animation: streakPanelIn 0.3s ease-out;
+  gap: 14px;
+  max-width: 92vw;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(255,140,0,0.06);
+  animation: streakSlideDown 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes streakPanelIn {
-  from { opacity: 0; transform: scale(0.9) translateY(12px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+@keyframes streakSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .streak-close {
   position: absolute;
-  top: 6px;
-  right: 10px;
+  top: 4px;
+  right: 8px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.4);
-  font-size: 22px;
+  color: rgba(255,255,255,0.3);
+  font-size: 20px;
   cursor: pointer;
   padding: 4px 8px;
   line-height: 1;
   -webkit-tap-highlight-color: transparent;
 }
-.streak-close:active { color: rgba(255,255,255,0.8); }
+.streak-close:active { color: rgba(255,255,255,0.7); }
 .streak-circles {
   display: flex;
   gap: 8px;
@@ -3785,8 +3784,16 @@ html, body {
   cursor: default;
 }
 .streak-day .streak-icon {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
   line-height: 1;
+}
+.streak-day .streak-icon svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 .streak-day .streak-amt {
   font-family: 'Rajdhani', sans-serif;
