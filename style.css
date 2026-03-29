@@ -3733,13 +3733,13 @@ html, body {
   position: relative;
   background: rgba(10,14,30,0.97);
   border: 1px solid rgba(255,160,0,0.15);
-  border-radius: 14px;
-  padding: 20px 14px 16px;
+  border-radius: 12px;
+  padding: 14px 12px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-  max-width: 92vw;
+  gap: 10px;
+  max-width: 88vw;
   box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(255,140,0,0.06);
   animation: streakSlideDown 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -3769,55 +3769,42 @@ html, body {
   flex-wrap: nowrap;
 }
 .streak-day {
-  width: 42px;
-  height: 56px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
   background: rgba(255,255,255,0.04);
   border: 1.5px solid rgba(255,255,255,0.08);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
   position: relative;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   cursor: default;
 }
-.streak-day .streak-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  line-height: 1;
-}
-.streak-day .streak-icon svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-.streak-day .streak-amt {
+.streak-day .streak-num {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
   line-height: 1;
 }
 
 /* Claimed state */
 .streak-day.claimed {
-  opacity: 0.35;
+  background: rgba(100,255,100,0.12);
+  border-color: rgba(100,255,100,0.3);
+}
+.streak-day.claimed .streak-num {
+  color: rgba(100,255,100,0.8);
 }
 .streak-day.claimed::after {
   content: '\2713';
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: rgba(100,255,100,0.8);
+  bottom: -2px;
+  right: -2px;
+  font-size: 10px;
+  color: rgba(100,255,100,0.9);
   font-weight: 700;
-  text-shadow: 0 0 6px rgba(100,255,100,0.4);
 }
 
 /* Today unclaimed — glowing */
