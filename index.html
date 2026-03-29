@@ -68,6 +68,7 @@
       </div>
     </div>
     <div class="title-icons-bar">
+      <button id="streak-btn" class="streak-icon-btn" aria-label="Daily Streak" onclick="openStreak()">🔥<span id="streak-badge" class="streak-badge hidden"></span></button>
       <button id="missions-btn" class="missions-icon-btn" aria-label="Missions" onclick="openMissions()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></button>
       <button id="lb-icon-btn" class="lb-icon-btn" aria-label="Leaderboard" onclick="toggleLeaderboard()">🏆</button>
       <button id="settings-btn" class="settings-btn" aria-label="Settings">⚙</button>
@@ -243,6 +244,14 @@
     </div>
     <div class="missions-ladder" id="missions-ladder"></div>
     <button class="btn-space btn-exit missions-close-btn" onclick="closeMissions()">CLOSE</button>
+  </div>
+</div>
+
+<!-- ── DAILY STREAK OVERLAY ─────────────────────── -->
+<div id="streak-overlay" class="overlay hidden" style="z-index:510;">
+  <div class="streak-content">
+    <div class="streak-circles" id="streak-circles"></div>
+    <div class="streak-popup hidden" id="streak-popup"></div>
   </div>
 </div>
 
