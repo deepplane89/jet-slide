@@ -3731,16 +3731,15 @@ html, body {
 .streak-overlay.hidden { display: none; }
 .streak-panel {
   position: relative;
-  background: rgba(10,14,30,0.97);
-  border: 1px solid rgba(255,160,0,0.15);
-  border-radius: 12px;
-  padding: 14px 12px 10px;
+  background: rgba(10,14,30,0.95);
+  border: 1px solid rgba(255,160,0,0.12);
+  border-radius: 10px;
+  padding: 10px 10px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  max-width: 88vw;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(255,140,0,0.06);
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
   animation: streakSlideDown 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @keyframes streakSlideDown {
@@ -3763,28 +3762,28 @@ html, body {
 .streak-close:active { color: rgba(255,255,255,0.7); }
 .streak-circles {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
 }
 .streak-day {
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: rgba(255,255,255,0.04);
-  border: 1.5px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   cursor: default;
 }
 .streak-day .streak-num {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 11px;
   color: rgba(255,255,255,0.6);
   line-height: 1;
 }
@@ -3810,10 +3809,10 @@ html, body {
 /* Today unclaimed — glowing */
 .streak-day.today {
   border-color: rgba(255,160,0,0.6);
-  box-shadow: 0 0 12px rgba(255,140,0,0.3), inset 0 0 8px rgba(255,140,0,0.1);
+  box-shadow: 0 0 8px rgba(255,140,0,0.3);
   animation: streakDayGlow 2s ease-in-out infinite;
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 @keyframes streakDayGlow {
   0%, 100% { box-shadow: 0 0 12px rgba(255,140,0,0.3), inset 0 0 8px rgba(255,140,0,0.1); }
@@ -3839,14 +3838,14 @@ html, body {
 .streak-popup {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 18px;
   color: #ffffff;
-  text-shadow: 0 0 16px rgba(255,140,0,0.6), 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 0 10px rgba(255,140,0,0.5), 0 1px 3px rgba(0,0,0,0.5);
   text-align: center;
   opacity: 0;
   transform: scale(0.5);
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
-  letter-spacing: 2px;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 1.4, 0.4, 1);
+  letter-spacing: 1px;
 }
 .streak-popup.visible {
   opacity: 1;
