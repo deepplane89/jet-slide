@@ -3870,13 +3870,13 @@ html, body {
    UNIFIED TOP HUD STRIP
    ═══════════════════════════════════════════════════════ */
 
-/* Translucent dark bar across the top */
+/* Subtle translucent bar */
 .title-top-bar {
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  padding-bottom: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding-bottom: 6px;
 }
 
 /* Equal spacing between icons */
@@ -3884,7 +3884,7 @@ html, body {
   gap: 8px;
 }
 
-/* ── Matched icon set: equal size, equal style ── */
+/* ── Matched icon set: no containers, just clean icons ── */
 .title-icons-bar .streak-icon-btn,
 .title-icons-bar .missions-icon-btn,
 .title-icons-bar .lb-icon-btn,
@@ -3892,11 +3892,11 @@ html, body {
   position: relative !important;
   top: auto !important;
   right: auto !important;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3907,15 +3907,15 @@ html, body {
   animation: none;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
-  transition: opacity 0.2s, border-color 0.2s, background 0.2s;
+  transition: opacity 0.15s;
 }
 .title-icons-bar .streak-icon-btn:active,
 .title-icons-bar .missions-icon-btn:active,
 .title-icons-bar .lb-icon-btn:active,
 .title-icons-bar .settings-btn:active {
   opacity: 1;
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.20);
+  background: none;
+  border: none;
 }
 
 /* ── Unified currency text ── */
