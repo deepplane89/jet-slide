@@ -4031,7 +4031,7 @@ html, body {
 /* ── Sci-fi display platform beneath ship ── */
 .platform-pad {
   position: absolute;
-  bottom: 20px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 180px;
@@ -4055,7 +4055,7 @@ html, body {
   width: auto !important;
   max-width: none !important;
   padding: 0 !important;
-  margin: -90px auto 0 !important;
+  margin: -30px auto 0 !important;
   position: relative;
   z-index: 2;
   transform: none !important;
