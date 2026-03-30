@@ -2046,9 +2046,13 @@ html, body {
   align-items: center;
   gap: 6px;
   margin: 0;
-  padding: 0;
-  flex: 1;
+  padding: 4px 8px;
+  flex: 0 1 auto;
   min-width: 0;
+  max-width: 160px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
 }
 .title-level-badge {
   font-family: var(--font-display);
@@ -3873,7 +3877,7 @@ html, body {
 
 /* Equal spacing between icons */
 .title-icons-bar {
-  gap: 8px;
+  gap: 4px;
 }
 
 /* ── Matched icon set: no containers, just clean icons ── */
@@ -3886,9 +3890,9 @@ html, body {
   right: auto !important;
   width: 36px;
   height: 36px;
-  background: none;
-  border: none;
-  border-radius: 0;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3906,8 +3910,8 @@ html, body {
 .title-icons-bar .lb-icon-btn:active,
 .title-icons-bar .settings-btn:active {
   opacity: 1;
-  background: none;
-  border: none;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
 /* ── Unified currency text ── */
@@ -3935,13 +3939,23 @@ html, body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(100,200,255,0.12);
 }
 
 .title-hud-row2 {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 6px;
+  padding-top: 4px;
   padding-left: 2px;
+}
+
+.title-hud-row2 .hud-currency-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 4px;
 }
 
 .title-hud-row2 .title-coin-display,
