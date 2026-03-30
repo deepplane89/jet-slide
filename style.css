@@ -3889,6 +3889,8 @@ html, body {
     52% 100%,
     0 100%
   );
+  filter: drop-shadow(0 1px 3px rgba(80,180,255,0.2));
+  -webkit-filter: drop-shadow(0 1px 3px rgba(80,180,255,0.2));
 }
 
 /* Equal spacing between icons */
