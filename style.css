@@ -4217,7 +4217,7 @@ html, body {
 .skin-viewer-label {
   font-size: clamp(13px, 2vw, 16px);
   letter-spacing: 0.25em;
-  transform: translate(9px, -42px);
+  transform: translate(9px, -42px) !important;
 }
 
 /* ── Small screen adjustments ── */
