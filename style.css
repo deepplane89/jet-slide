@@ -3872,7 +3872,7 @@ html, body {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-bottom: none;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
 }
 .title-hud-separator {
   width: 100%;
