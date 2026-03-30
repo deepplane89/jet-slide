@@ -2047,8 +2047,8 @@ html, body {
   gap: 6px;
   margin: 0;
   padding: 4px 8px;
-  flex: 0 1 auto;
-  min-width: 0;
+  flex: 1 1 0;
+  min-width: 100px;
   max-width: 160px;
   background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.08);
