@@ -4031,8 +4031,8 @@ html, body {
 /* ── Sci-fi display platform beneath ship ── */
 .platform-pad {
   position: absolute;
-  bottom: -10px;
-  left: 50%;
+  bottom: 10px;
+  left: calc(50% - 1px);
   transform: translateX(-50%);
   width: 180px;
   pointer-events: none;
@@ -4110,7 +4110,7 @@ html, body {
   width: auto !important;
   max-width: none !important;
   padding: 0 !important;
-  margin: -30px auto 0 !important;
+  margin: 0 auto 0 !important;
   position: relative;
   z-index: 2;
   transform: none !important;
@@ -4217,6 +4217,7 @@ html, body {
 .skin-viewer-label {
   font-size: clamp(13px, 2vw, 16px);
   letter-spacing: 0.25em;
+  transform: translate(9px, -42px);
 }
 
 /* ── Small screen adjustments ── */
