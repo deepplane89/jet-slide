@@ -3949,6 +3949,7 @@ html, body {
   gap: 6px;
   padding-top: 4px;
   padding-left: 2px;
+  justify-content: flex-start;
 }
 
 .title-hud-row2 .hud-currency-divider {
@@ -3976,7 +3977,7 @@ html, body {
   font-size: 11px;
   color: #ffaa33;
   position: absolute;
-  bottom: -2px;
+  bottom: -14px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
