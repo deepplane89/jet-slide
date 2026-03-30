@@ -4055,7 +4055,9 @@ html, body {
   width: auto !important;
   max-width: none !important;
   padding: 0 !important;
-  margin: -30px auto 0 !important;
+  margin: -60px auto 0 !important;
+  position: relative;
+  z-index: 2;
   transform: none !important;
   grid-template-areas: unset !important;
   grid-template-columns: unset !important;
