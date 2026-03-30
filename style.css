@@ -3872,16 +3872,23 @@ html, body {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-bottom: none;
-  padding-bottom: 6px;
-}
-.title-hud-separator {
-  width: 100%;
-  height: 20px;
-  margin-top: 2px;
-}
-.title-hud-separator line {
-  stroke: rgba(100,200,255,0.18);
-  stroke-width: 1;
+  padding-bottom: 16px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75%,
+    58% 75%,
+    52% 100%,
+    0 100%
+  );
+  -webkit-clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75%,
+    58% 75%,
+    52% 100%,
+    0 100%
+  );
 }
 
 /* Equal spacing between icons */
