@@ -4025,6 +4025,25 @@ html, body {
   justify-content: center;
   max-width: 260px;
   height: 100%;
+  position: relative;
+}
+
+/* ── Sci-fi display platform beneath ship ── */
+.platform-pad {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(0,204,255,0.5)) drop-shadow(0 0 4px rgba(0,204,255,0.3));
+  animation: pad-glow 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes pad-glow {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,204,255,0.5)) drop-shadow(0 0 4px rgba(0,204,255,0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(0,204,255,0.7)) drop-shadow(0 0 8px rgba(0,204,255,0.5)); }
 }
 
 /* Override old skin-viewer grid — now just a simple column for label + action */
@@ -4036,7 +4055,7 @@ html, body {
   width: auto !important;
   max-width: none !important;
   padding: 0 !important;
-  margin: 0 auto !important;
+  margin: -30px auto 0 !important;
   transform: none !important;
   grid-template-areas: unset !important;
   grid-template-columns: unset !important;
