@@ -3871,8 +3871,18 @@ html, body {
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: none;
   padding-bottom: 6px;
+  position: relative;
+}
+.title-hud-separator {
+  width: 100%;
+  height: 8px;
+  margin-top: 2px;
+}
+.title-hud-separator line {
+  stroke: rgba(100,200,255,0.18);
+  stroke-width: 1;
 }
 
 /* Equal spacing between icons */
@@ -3888,8 +3898,8 @@ html, body {
   position: relative !important;
   top: auto !important;
   right: auto !important;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 6px;
@@ -3939,8 +3949,6 @@ html, body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(100,200,255,0.12);
 }
 
 .title-hud-row2 {
