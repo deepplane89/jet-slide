@@ -4016,6 +4016,7 @@ html, body {
   min-height: 120px;
   max-height: 280px;
   position: relative;
+  z-index: 1;
 }
 
 .ship-showcase-center {
